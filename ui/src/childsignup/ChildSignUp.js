@@ -1,4 +1,5 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react';
+import './ChildSignUp.css';
 
 class ChildSignUp extends Component {
   state = {
@@ -6,26 +7,28 @@ class ChildSignUp extends Component {
     childAge: ""
   }
 
-  setName = event => this.setState({childName: event.target.value})
+  setName = event => this.setState({childName: event.target.value});
+
+  setAge = event => this.setState({childAge: event.target.value});
 
   render() {
-    console.log("Child name: ", this.state.childName);
     return (
-      <Fragment>
+      <div className="signup-card">
         <div>
-          <h1>Hello!</h1>
+          <h1 className="signup-text">Hello, everyone!</h1>
         </div>
         <form>
-          <div>
+          <div className="signup-text">
             My name is{' '}
             <input type="text" name="name" placeholder="enter your name" onChange={this.setName}/> and
             I am <input type="text" name="name" placeholder="your age" /> years
             old!
           </div>
+          <h2 className="signup-text">I wish to:</h2>
         </form>
-      </Fragment>
+      </div>
     )
   }
 }
 
-export default ChildSignUp
+export default ChildSignUp;

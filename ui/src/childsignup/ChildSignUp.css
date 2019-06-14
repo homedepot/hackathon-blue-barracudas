@@ -1,0 +1,21 @@
+::placeholder {
+  color: #FF00A7;
+}
+
+.signup-card {
+  background-color: #5CCDC9;
+  width: 550px;
+  padding-left: 30px;
+  margin: 0 auto;
+  left: 50%;
+  top: 50%;
+  justify-content: center;
+  align-items: center;
+  border-color: grey;
+  border-width: 5px;
+  border-style: solid;
+}
+
+.signup-text {
+  color: #2800D8;
+}
