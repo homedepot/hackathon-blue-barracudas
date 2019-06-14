@@ -5,6 +5,8 @@ WORKDIR /ui
 ENV PATH /ui/node_modules/.bin:$PATH
 
 COPY package.json /ui/package.json
+COPY .npmrc /ui/.npmrc
+COPY .yarnrc /ui/.yarnrc
 
 RUN yarn install --silent
 RUN yarn add global react-scripts@3.0.1 --silent
