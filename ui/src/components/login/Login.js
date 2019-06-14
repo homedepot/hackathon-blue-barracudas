@@ -47,8 +47,6 @@ class Login extends Component {
           password
         })
 
-      console.log(`User profile is: ${response.body}`)
-
       this.props.history.push('/landing')
     } catch (e) {}
   }
