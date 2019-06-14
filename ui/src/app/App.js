@@ -11,9 +11,9 @@ function App() {
     <Router>
       <WatchAuth>
         <Switch>
-          <Route exact path="/landing" component={Landing} />
+          <Route exact path="/" component={Landing} />
+          <Route exact path="/login" component={Login} />
           <Route exact path="/wish" component={Wish} />
-          <Route exact path="/" component={Login} />
         </Switch>
       </WatchAuth>
     </Router>
