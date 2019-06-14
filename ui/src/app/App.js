@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import './App.css'
 import Login from '../login/Login'
 import Landing from '../landing/Landing'
+import Wish from '../wish/Wish'
 import WatchAuth from '../auth/WatchAuth'
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
       <WatchAuth>
         <Switch>
           <Route exact path="/landing" component={Landing} />
+          <Route exact path="/wish" component={Wish} />
           <Route exact path="/" component={Login} />
         </Switch>
       </WatchAuth>
