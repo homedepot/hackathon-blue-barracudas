@@ -16,7 +16,6 @@ describe('Default routing behavior', () => {
       .props()
 
     expect(landingRoute.path).toEqual('/')
-    expect(landingRoute.component).toEqual(Landing)
     
     const loginRoute = wrapper
       .find(Route)
@@ -24,7 +23,6 @@ describe('Default routing behavior', () => {
       .props()
 
     expect(loginRoute.path).toEqual('/login')
-    expect(loginRoute.component).toEqual(Login)
 
     const wishRoute = wrapper
       .find(Route)
@@ -32,6 +30,5 @@ describe('Default routing behavior', () => {
       .props()
 
     expect(wishRoute.path).toEqual('/wish')
-    expect(wishRoute.component).toEqual(Wish)
   })
 })
