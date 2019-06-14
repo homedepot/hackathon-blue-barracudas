@@ -2,6 +2,26 @@ import React, { Component } from 'react'
 import Image from '../image/Image'
 import './ChildSignUp.css'
 
+const Wish = props => {
+  return (
+    <div style={{ display: 'inline-block', paddingLeft: `${props.leftPadding}px` }}>
+      <div
+        style={{
+          width: 120,
+          backgroundColor: 'white',
+          borderColor: 'grey',
+          borderWidth: 5,
+          borderStyle: 'solid'
+        }}
+      >
+        <Image source={`${props.imgSrc}`} />
+      </div>
+      <h2 className="signup-text">{props.objective}</h2>
+      <div className="signup-text">{props.goal}</div>
+    </div>
+  )
+}
+
 class ChildSignUp extends Component {
   state = {
     childName: '',
@@ -15,93 +35,44 @@ class ChildSignUp extends Component {
 
   render() {
     return (
-      <div className="signup-card" style={{fontFamily: "Arial Rounded MT Bold"}}>
-        <div>
-          <h1 className="signup-text" style={{ marginTop: 0, fontSize: 80 }}>
+      <div
+        className="signup-card"
+        style={{ fontFamily: 'Arial Rounded MT Bold' }}
+      >
+        <div style={{display: "flex" }}>
+          <h1 className="signup-text" style={{ marginTop: 0, fontSize: 80, display: "inline-block" }}>
             Hello, everyone!
           </h1>
+          <Image source="logo" style={{ height: "60%", width: "20%", display: "inline-block", marginLeft: 40}}/>
+          <Image source="logoGalaxyColor" style={{ height: "60%", width: "20%", display: "inline-block"}}/>
         </div>
         <form>
-          <div className="signup-text">
+          <div className="signup-text" style={{fontSize: 40}}>
             My name is{' '}
             <input
               type="text"
               name="name"
               placeholder="enter your name"
               onChange={this.setName}
+              style={{height: 80, width: 330, fontSize: 40, color: "#FF00A7"}}
             />{' '}
-            and I am <input type="text" name="name" placeholder="your age" />{' '}
+            and I am <input type="text" name="name" placeholder="your age" style={{height: 80, width: 170, fontSize: 40, color: "#FF00A7"}}/>{' '}
             years old!
           </div>
         </form>
         <div>
-          <h2 className="signup-text">I wish to:</h2>
+          <h2 className="signup-text" style={{fontSize: 40}}>I wish to:</h2>
         </div>
 
+        
         <div>
-          <div style={{ display: 'inline-block' }}>
-            <div
-              style={{
-                width: 120,
-                backgroundColor: 'white',
-                borderColor: 'grey',
-                borderWidth: 5,
-                borderStyle: 'solid'
-              }}
-            >
-              <Image source="toGo" />
-            </div>
-            <h2 className="signup-text">GO</h2>
-            <div className="signup-text">Somewhere</div>
-          </div>
+          <Wish objective={"GO"} goal={"Somewhere"} imgSrc={"toGo"} leftPadding={0}/>
 
-          <div style={{ display: 'inline-block', paddingLeft: 5 }}>
-            <div
-              style={{
-                width: 120,
-                backgroundColor: 'white',
-                borderColor: 'grey',
-                borderWidth: 5,
-                borderStyle: 'solid'
-              }}
-            >
-              <Image source="toMeet" />
-            </div>
-            <h2 className="signup-text">MEET</h2>
-            <div className="signup-text">Someone</div>
-          </div>
+          <Wish objective={"MEET"} goal={"Someone"} imgSrc={"toMeet"} leftPadding={35}/>
+          
+          <Wish objective={"BE"} goal={"Someone"} imgSrc={"toBe"} leftPadding={35}/>
 
-          <div style={{ display: 'inline-block', paddingLeft: 5 }}>
-            <div
-              style={{
-                width: 120,
-                backgroundColor: 'white',
-                borderColor: 'grey',
-                borderWidth: 5,
-                borderStyle: 'solid'
-              }}
-            >
-              <Image source="toBe" />
-            </div>
-            <h2 className="signup-text">BE</h2>
-            <div className="signup-text">Someone</div>
-          </div>
-
-          <div style={{ display: 'inline-block', paddingLeft: 5 }}>
-            <div
-              style={{
-                width: 120,
-                backgroundColor: 'white',
-                borderColor: 'grey',
-                borderWidth: 5,
-                borderStyle: 'solid'
-              }}
-            >
-              <Image source="toSee" />
-            </div>
-            <h2 className="signup-text">SEE</h2>
-            <div className="signup-text">Something</div>
-          </div>
+          <Wish objective={"SEE"} goal={"Something"} imgSrc={"toSee"} leftPadding={35}/>
         </div>
       </div>
     )
