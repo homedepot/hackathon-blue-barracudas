@@ -25,8 +25,7 @@ const Wish = props => {
 class ChildSignUp extends Component {
   state = {
     childName: '',
-    childAge: '',
-    wishes: ['toGo', 'toMeet', 'toBe', 'toSee']
+    childAge: ''
   }
 
   setName = event => this.setState({ childName: event.target.value })
