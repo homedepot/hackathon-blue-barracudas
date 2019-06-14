@@ -1,14 +1,35 @@
-.container{
+body {
+    background-image: url("../image/adminBackground.jpg");
 
- border: 1px red solid;
-    display: flex;
-
-    flex-direction: column;
-    width: 350px;
-    align-items: center;
-    justify-content: center;
-
-
-
-    margin-right: auto; margin-left: auto;
 }
+
+.login {
+
+    background-color: #5CCDC9;
+
+}
+    .container {
+      border: 1px #5CCDC9 solid;
+      display: flex;
+      flex-direction: column;
+      width: 350px;
+      align-items: center;
+      justify-content: center;
+      background-color: #5CCDC9;
+      margin-right: auto;
+      margin-left: auto;
+      margin-top:100px;
+      padding: 20px;
+
+    }
+
+  .buttonContainer {
+
+
+      justify-content: center;
+      align-items: center;
+  }
+
+
+
+
