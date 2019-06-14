@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Router, Route} from  'react-router-dom';
-import './adminLogin.scss';
+import './adminLogin.css';
 import logo from '../image/MAWLogo.png';
 import adminBackground from '../image/adminBackground.jpg'
 
