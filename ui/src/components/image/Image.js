@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { images } from 'assets/images'
+import images  from '../../assets/images'
 import { any, object, string } from 'prop-types'
 
 export default class Image extends Component {

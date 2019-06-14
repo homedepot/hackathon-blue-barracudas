@@ -10,8 +10,7 @@ export default class Wish extends Component {
           Test
         </div>
         <Image
-            className="clear-button"
-            alt="Clear search"
+            className="toGo"
             source="toGo"
           />       
       </div>

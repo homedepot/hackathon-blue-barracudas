@@ -2,9 +2,9 @@ import React from 'react'
 import { shallow } from 'enzyme'
 import App from './App'
 import { Route } from 'react-router-dom'
-import Landing from '../landing/Landing'
-import Login from '../login/Login'
-import Wish from '../wish/Wish'
+import Landing from '../components/landing/Landing'
+import Login from '../components/login/Login'
+import Wish from '../components/wish/Wish'
 
 describe('Default routing behavior', () => {
   it('renders the login page by default', () => {

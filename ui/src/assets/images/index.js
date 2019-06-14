@@ -1,4 +1,4 @@
-export const images ={
+const images = {
   "blueMonth": require('./blueMonth.png'),
   "chevronCollapsed": require('./chevronCollapsed.png'),
   "chevronExpanded": require('./chevronExpanded.png'),
@@ -12,3 +12,6 @@ export const images ={
   "toMeet": require('./toMeet.png'),
   "toSee": require('./toSee.png'),
 }
+
+
+export default images
