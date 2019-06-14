@@ -5,6 +5,8 @@ WORKDIR /api
 ENV PATH /api/node_modules/.bin:$PATH
 
 COPY package.json /api/package.json
+COPY .yarnrc /api/.yarnrc
+COPY .npmrc /api/.npmrc
 
 RUN yarn install --silent
 RUN npm install -g nodemon@1.19.1 --silent
