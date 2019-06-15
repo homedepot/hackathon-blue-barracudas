@@ -18,6 +18,11 @@ beforeEach(()=>{
 })
 
 it('renders the page', ()=>{
-  const wishContainer = component.find('.test')
+  const wishContainer = component.find('.child-information')
+  expect(wishContainer.text()).toEqual('Test')
+})
+
+it('renders the page', ()=>{
+  const wishContainer = component.find('.child-information')
   expect(wishContainer.text()).toEqual('Test')
 })
