@@ -1,0 +1,23 @@
+.wish-management-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  .calender-image{
+    background-color: #ebebeb;
+    border: 1px solid rgba(1,1,1,0.1);
+  }
+  .wishes-group-container{
+    overflow:scroll;
+    width: 90%;
+    .list-group-item-container{
+      width: 100%;
+      padding: 0;
+    }
+  }
+  .wish-item-wrapper{
+    display: flex;
+    background-color: #f7f7f7;
+  }
+}

@@ -1,0 +1,1 @@
+export const GET_ALL_WISHES = 'GET_ALL_WISHES'
