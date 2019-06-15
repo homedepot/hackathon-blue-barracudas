@@ -1,10 +1,9 @@
 const request = require('supertest')
-const mongoose = require('mongoose')
 
 process.env.mongoUrl = process.env.mongoUrl || 'mongodb://localhost:27017/test'
 
-const app = require('./app')
-const Account = require('./db/Account')
+// const app = require('./app')
+// const Account = require('./db/Account')
 
 beforeEach(async () => {
   await Account.remove({})

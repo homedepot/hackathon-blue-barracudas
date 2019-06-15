@@ -5,6 +5,8 @@ WORKDIR /api
 ENV PATH /api/node_modules/.bin:$PATH
 
 COPY package*.json ./
+COPY ./.yarnrc ./
+COPY ./.npmrc ./
 
 RUN yarn install --silent
 
