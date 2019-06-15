@@ -1,6 +1,11 @@
 .wish-container{
   display: flex;
   width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f7f7f7;
+  border-radius: 0;
+  box-shadow: 1px solid rgba(1,1,1,0.1);
   .information{
     display: flex;
     align-items: center;

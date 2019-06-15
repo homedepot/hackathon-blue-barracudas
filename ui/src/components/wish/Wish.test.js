@@ -31,14 +31,9 @@ it('displays the child image', ()=>{
 })
 
 it('displays the child name and age', ()=>{
-  const childPersonalDetails = component.find('.child-name')
+  const childPersonalDetails = component.find('.lead')
   const expected = `${props.childName} - Age ${props.childAge} from ${props.childTown}`
   expect(childPersonalDetails.text()).toEqual(expected)
-})
-
-it('displays the child description', ()=>{
-  const childDetails = component.find('.child-details')
-  expect(childDetails.text()).toEqual(props.childDetails)
 })
 
 it('displays the child description', ()=>{
