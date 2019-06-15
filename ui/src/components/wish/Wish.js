@@ -8,7 +8,7 @@ export default class Wish extends Component {
       <div className='wish-container'>
         <div className='child information card'>
           <div className='profile-picture'>
-            <img src={this.props.childImage} />
+            <img alt='Profile picture' src={this.props.childImage} />
           </div>
           <div className='child-info-container'>
             <div className='child-name'>
@@ -21,16 +21,18 @@ export default class Wish extends Component {
           <div className='vertical-line'></div>
           <div className='wish information'>
             <div className='sponsor'>
-              <img src={`${this.props.sponsor}`} />
+              <img alt='Sponsor' src={`${this.props.sponsor}`} />
             </div>
             <div className='vertical-line'></div>
             <div className='wish-type icons'>
               <Image
+                alt='Wish type'
                 source={this.props.wishType}
               />
             </div>
             <div className='chevron icons'>
               <Image
+                alt='Chevron'
                 source='chevronForward'
               />
             </div>
