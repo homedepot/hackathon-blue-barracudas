@@ -5,8 +5,7 @@ import Login from '../components/login/Login'
 import Landing from '../components/landing/Landing'
 import WishList from '../components/wishList/WishList'
 import WatchAuth from '../auth/WatchAuth'
-
- import Admin from '../components/adminLogin/adminLogin'
+import Admin from '../components/adminLogin/adminLogin'
 
 function App() {
   return (

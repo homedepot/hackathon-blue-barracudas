@@ -8,6 +8,7 @@ export default class WishList extends Component{
   renderImage = () =>{
     return this.props.isCurrentDate ? 'magentaMonth' : 'blueMonth'
   }
+
   renderWishList = () => {
     return this.props.wishes.map((child, index)=>{
       return(

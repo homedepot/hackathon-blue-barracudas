@@ -41,6 +41,8 @@ app.use(cors({
 
 app.use(compression())
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cookieParser())
+app.use(session({ keys: [process.env.cookieSigningKey || 'secretkey1'] }))
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -117,30 +119,6 @@ mongo()
       function(req, res) {
         res.redirect('/success?username='+req.user.username);
       });
-
-
-    // app.use(cors({
-    //   credentials: true,
-    // }));
-    //
-    // app.use(
-    //   cors({
-    //     origin: (reqOrigin, callback) => {
-    //       console.log("made it@", reqOrigin)
-    //
-    //       callback(null, true)
-    //     //
-    //     //   const whitelist = ['wishhack.xyz', 'localhost']
-    //     //   if (whitelist.filter(w => reqOrigin && reqOrigin.includes(w))) {
-    //     //     console.log('truethy')
-    //     //     callback(null, true)
-    //     //   } else {
-    //     //     console.log('falsy')
-    //     //     callback(new Error('Now Allowed by CORS'))
-    //     //   }
-    //     }
-    //   })
-    // )
   })
   .catch(err => {
     console.error('app failed to connect to database', err);
