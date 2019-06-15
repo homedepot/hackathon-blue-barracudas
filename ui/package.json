@@ -46,7 +46,6 @@
     ]
   },
   "devDependencies": {
-    "@pallet/pallet": "^1.0.0-pallet-one",
     "@types/jest": "^24.0.13",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
