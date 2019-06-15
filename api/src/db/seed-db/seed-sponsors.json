@@ -1,0 +1,14 @@
+[
+  {
+    "name": "Home Depot",
+    "logoUrl": "https://corporate.homedepot.com/sites/default/files/image_gallery/THD_logo.jpg",
+    "createdAt": 1561262400000,
+    "updatedAt": 1561262400000
+  },
+  {
+    "name": "Bank of America",
+    "logoUrl": "https://cdn.worldvectorlogo.com/logos/bank-of-america-4.svg",
+    "createdAt": 1561262400000,
+    "updatedAt": 1561262400000
+  }
+]

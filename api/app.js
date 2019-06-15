@@ -14,7 +14,7 @@ const schema = require('./src/schema');
 const rootResolver = require('./src/resolvers');
 const index = require('./src/routes')
 const auth = require('./src/routes/auth')
-const initializeDb = require('./src/db/mongo');
+const mongo = require('./src/db/mongo');
 
 const app = express()
 
@@ -52,7 +52,7 @@ app.use(cookieParser())
 app.use('/', index)
 app.use('/auth', auth)
 
-initializeDb()
+mongo()
   .then(db => {
     app.use(
       '/graphql',

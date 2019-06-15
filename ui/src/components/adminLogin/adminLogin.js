@@ -2,14 +2,8 @@ import React, {Component} from 'react';
 import {Router, Route} from  'react-router-dom';
 import './adminLogin.css';
 import logo from '../image/MAWLogo.png';
-import adminBackground from '../image/adminBackground.jpg'
-
-
-
-
 
 class AdminLogin extends Component {
-
 
   loginHandler = () => {
     alert("login clicked");
@@ -23,8 +17,6 @@ class AdminLogin extends Component {
   };
 
     render() {
-
-
 
       return (
        <div className="container">
