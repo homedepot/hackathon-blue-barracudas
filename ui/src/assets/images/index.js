@@ -11,7 +11,7 @@ const images = {
   "toGo": require('./toGo.png'),
   "toMeet": require('./toMeet.png'),
   "toSee": require('./toSee.png'),
-  "hd-logo": require('./hd-logo.svg'),
+  "hd-logo": require('./hd-logo.png'),
 }
 
 
