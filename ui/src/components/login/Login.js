@@ -46,9 +46,12 @@ class Login extends Component {
           username,
           password
         })
+      console.log(response);
 
       this.props.history.push('/landing')
-    } catch (e) {}
+    } catch (e) {
+      console.log('error', e)
+    }
   }
 
   handleFormFieldChange = (key, { target: { value } }) => {

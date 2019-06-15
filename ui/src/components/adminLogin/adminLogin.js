@@ -19,7 +19,7 @@ class AdminLogin extends Component {
     render() {
 
       return (
-       <div className="container">
+        <div className="container">
          <img src={logo} alt="Logo" />
 
         <h6>Admin Login</h6>

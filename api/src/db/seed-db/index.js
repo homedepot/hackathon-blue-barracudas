@@ -18,7 +18,7 @@ class SeedDb {
       console.log(`Collection '${collectionName}' not empty! Cannot seed`);
       return;
     }
-    const filePath = `src/db/seed-db/seed-${collectionName}.json`
+    const filePath = `src/db/seed-db/collections/${collectionName}.json`
     const records = JSON.parse(fs.readFileSync(filePath));
     await (await this.db()).collection(collectionName).insertMany(records);
     console.log(`Seeded '${collectionName}' successfully`);
