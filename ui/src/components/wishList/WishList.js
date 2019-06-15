@@ -6,7 +6,7 @@ import './WishList.scss'
 
 export default class WishList extends Component{
   renderImage = () =>{
-    return true ? 'magentaMonth' : 'blueMonth'
+    return this.props.isCurrentDate ? 'magentaMonth' : 'blueMonth'
   }
   renderWishList = () => {
     return this.props.wishes.map((child, index)=>{
