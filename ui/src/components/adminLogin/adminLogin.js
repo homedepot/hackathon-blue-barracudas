@@ -1,6 +1,6 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import './adminLogin.css';
-import logo from '../image/MAWLogo.png';
+import Image from '../image/Image'
 
 class AdminLogin extends Component {
 
@@ -15,25 +15,40 @@ class AdminLogin extends Component {
     this.props.history.push('/');
   };
 
-    render() {
+  render() {
 
-      return (
-        <div className="container">
-         <img src={logo} alt="Logo" />
-
-        <h6>Admin Login</h6>
+    return (
+      <div className="admin-login-container">
         <div className="login">
-          <div><label>username</label> <input id="username" labelName="Username: " inputType="text" parentFunction={this.setUsername}  /></div>
-          <div><label>password</label> <input type="password" id ="password" labelName="Password: " inputType="password" parentFunction={this.setPassword} /></div>
-       <div className="buttonContainer">
-         <button className="but"onClick={this.loginHandler}>Login</button> &nbsp;
-         <button className="but" onClick={this.signUp}>Sign Up</button>
-       </div>
-
+          <Image source='logo' alt="Logo" className='logo-admin' />
+          <h6>Admin Login</h6>
+          <div className='inputs'>
+            <label>username</label> 
+            <input 
+              className="form-control-lg border-line"
+              id="username" 
+              labelName="Username: " 
+              inputType="text" 
+              parentFunction={this.setUsername} 
+            />
+            <label>password</label> 
+            <input 
+              className="form-control-lg border-line"
+              type="password" 
+              id="password" 
+              labelName="Password: " 
+              inputType="password" 
+              parentFunction={this.setPassword} 
+            />
+          </div>
+          <div className="buttonContainer">
+            <button className="btn btn-primary" onClick={this.loginHandler}>Login</button> &nbsp;
+            <button className="btn btn-info" onClick={this.signUp}>Sign Up</button>
+          </div>
         </div>
-        </div>
-        );
-    }
+      </div>
+    )
+  }
 }
 
 export default AdminLogin;

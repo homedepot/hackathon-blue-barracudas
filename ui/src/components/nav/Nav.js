@@ -10,7 +10,7 @@ export default class Nav extends Component{
     if (this.state.isLoggedIn){
       return (
         <div>
-          <Link to='/login'>Your Name</Link>
+          <div>Your Name</div>
           <Link to='/logout'>Logout</Link>
         </div>
       )
@@ -19,7 +19,7 @@ export default class Nav extends Component{
         <div>
         <Link to='/childsignup'>Make Your Wish</Link>
          |
-        <Link to='/login'>Admin</Link>
+        <Link to='/admin'>Admin</Link>
       </div>
       )
     }
