@@ -5,33 +5,33 @@ export const getDefaultState = () => {
     wishes: [
       {
         childImage: 'https://i.imgur.com/AqQrCXI.jpg?1',
-        childName: 'Lark',
+        childFirstName: 'Lark',
         childAge: '3',
-        childDetails: 'Lark loves fun!',
-        childTown: 'Ancorage',
+        wishDetailsText: 'Lark loves fun!',
+        childHomeCity: 'Ancorage',
         sponsor: 'https://i.imgur.com/CJjcguK.jpg',
         wishType: 'toGo',
-        dateUpdated: 1
+        updatedAt: 1561262400000
       },
       {
         childImage: 'https://i.imgur.com/AqQrCXI.jpg?1',
-        childName: 'Lark',
+        childFirstName: 'Lark',
         childAge: '3',
-        childDetails: 'Lark loves fun!',
-        childTown: 'Ancorage',
+        wishDetailsText: 'Lark loves fun!',
+        childHomeCity: 'Ancorage',
         sponsor: 'https://i.imgur.com/CJjcguK.jpg',
         wishType: 'toGo',
-        dateUpdated: 2
+        updatedAt: 1561262400000
       },
       {
         childImage: 'https://i.imgur.com/AqQrCXI.jpg?1',
-        childName: 'Lark',
+        childFirstName: 'Lark',
         childAge: '3',
-        childDetails: 'Lark loves fun!',
-        childTown: 'Ancorage',
+        wishDetailsText: 'Lark loves fun!',
+        childHomeCity: 'Ancorage',
         sponsor: 'https://i.imgur.com/CJjcguK.jpg',
         wishType: 'toGo',
-        dateUpdated: 3
+        updatedAt: 1561262400000
       },
     ]
   }

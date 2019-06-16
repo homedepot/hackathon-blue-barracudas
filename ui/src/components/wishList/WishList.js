@@ -3,13 +3,19 @@ import Wish from '../wish/Wish'
 import Image from '../image/Image'
 import './WishList.scss'
 import { connect } from 'react-redux'
+import moment from 'moment'
 
 class WishList extends Component{
-  renderImage = () =>{
-    return this.props.isCurrentDate ? 'magentaMonth' : 'blueMonth'
+  isCurrentDate = (date) => {
+    const recordDate = moment(date).date()
+    const currentDate = moment().date()
+    return moment(recordDate).isSame(moment(currentDate))
   }
-  dateColor = () => {
-    return this.props.isCurrentDate ? 'magenta' : 'blue'
+  renderImage = (date) =>{
+    return this.isCurrentDate(date) ? 'magentaMonth' : 'blueMonth'
+  }
+  dateColor = (date) => {
+    return this.isCurrentDate(date) ? 'magenta' : 'blue'
   }
   renderWishList = () => {
     return this.props.wishes.map((wish, index)=>{
@@ -19,16 +25,16 @@ class WishList extends Component{
             key={index} 
         >
         <div className='calender-image'>
-          <Image source={this.renderImage()} className='calendar'/>
-          <div class={`date ${this.dateColor()}`}>{wish.dateUpdated}</div>
+          <Image source={this.renderImage(wish.updatedAt)} className='calendar'/>
+          <div className={`date ${this.dateColor(wish.updatedAt)}`}>{moment(wish.updatedAt).date()}</div>
         </div>
         <div className='list-group-item list-group-item-container'>
           <Wish
             childImage={wish.childImage}
-            childName={wish.childName}
+            childFirstName={wish.childFirstName}
             childAge={wish.childAge}
-            childDetails={wish.childDetails}
-            childTown={wish.childTown}
+            wishDetailsText={wish.wishDetailsText}
+            childHomeCity={wish.childHomeCity}
             sponsor={wish.sponsor}
             wishType={wish.wishType}
           />
