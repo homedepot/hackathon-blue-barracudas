@@ -1,5 +1,3 @@
-import { GET_ALL_WISHES } from '../actions/Constants.js'
-
 export const getDefaultState = () => {
   return {
     wishes: [
@@ -33,13 +31,14 @@ export const getDefaultState = () => {
         wishType: 'toGo',
         updatedAt: 1561262400000
       },
-    ]
+    ],
+    wishType: ''
   }
 }
 
 const wishReducer = (state = getDefaultState(), action) => {
   switch (action.type) {
-    case GET_ALL_WISHES: {
+    case 'GET_ALL_WISHES': {
       return {
         ...state,
         wishes: action.payload
@@ -49,6 +48,12 @@ const wishReducer = (state = getDefaultState(), action) => {
       return {
         ...state,
         dateMonth: action.payload
+      }
+    }
+    case 'SET_WISH_TYPE': {
+      return {
+        ...state,
+        wishType: action.payload
       }
     }
     default: {

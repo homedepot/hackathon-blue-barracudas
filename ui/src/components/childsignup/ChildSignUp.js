@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
 import Image from '../image/Image'
 import './ChildSignUp.css'
+import { connect } from 'react-redux'
+import { setWishType } from '../../actions/wishActions'
 
-const Wish = props => {
+const Wish = (props) => {
   return (
-    <div style={{ display: 'inline-block', paddingLeft: `${props.leftPadding}px` }}>
+    <div onClick={() => props.handleClick(props.imgSrc)} className='wish-type-image' style={{ display: 'inline-block', paddingLeft: `${props.leftPadding}px` }}>
       <div
         style={{
           width: 150,
@@ -28,13 +30,17 @@ const Wish = props => {
 
 class ChildSignUp extends Component {
   state = {
-    childName: '',
-    childAge: ''
+    name: '',
+    age: '',
+    city: '',
+    details: '',
+    wish: ''
   }
 
-  setName = event => this.setState({ childName: event.target.value })
-
-  setAge = event => this.setState({ childAge: event.target.value })
+  handleChange = (event) => {
+    event.preventDefault()
+    this.setState({[event.target.name]: event.target.value})
+  }
 
   render() {
     return (
@@ -49,14 +55,14 @@ class ChildSignUp extends Component {
           <Image source="logo" style={{ height: "60%", width: "20%", display: "inline-block", marginLeft: 40}}/>
           <Image source="logoGalaxyColor" style={{ height: "60%", width: "20%", display: "inline-block"}}/>
         </div>
-        <form>
+        <form className='child-signup-form'>
           <div className="signup-text" style={{fontSize: 40}}>
             My name is
             <input
               type="text"
               name="name"
               placeholder="enter your name"
-              onChange={this.setName}
+              onChange={this.handleChange}
               style={{height: 80, width: 330, fontSize: 40, color: "#FF00A7"}}
             />
             and I am <input type="text" name="name" placeholder="your age" style={{height: 80, width: 170, fontSize: 40, color: "#FF00A7"}}/>
@@ -66,9 +72,30 @@ class ChildSignUp extends Component {
               type="text"
               name="name"
               placeholder="enter your city"
-              onChange={this.setName}
+              onChange={this.handleChange}
               style={{height: 80, width: 330, fontSize: 40, color: "#FF00A7"}}
             />
+          </div>
+          <div className='signup-text child-signup-details' style={{fontSize: 40}}>
+            <div>
+              I <textarea 
+                type="text" 
+                name="name" 
+                placeholder="tell us about you!" 
+                style={{height: 80, width: 170, fontSize: 40, color: "#FF00A7"}}
+                onChange={this.handleChange}
+              />
+            </div>
+            <div>
+              and I wish 
+              <textarea 
+                type="text" 
+                name="name" 
+                placeholder="tell us your wish!" 
+                style={{height: 80, width: 170, fontSize: 40, color: "#FF00A7"}}
+                onChange={this.handleChange}
+              /> 
+            </div>
           </div>
         </form>
         <div>
@@ -77,25 +104,52 @@ class ChildSignUp extends Component {
 
         
         <div>
-          <Wish objective={"GO"} goal={"Somewhere"} imgSrc={"toGo"} leftPadding={0}/>
+          <Wish 
+              handleClick={this.props.setWishType} 
+              objective={"GO"} 
+              goal={"Somewhere"} 
+              imgSrc={"toGo"} 
+              leftPadding={0}
+          />
 
-          <Wish objective={"MEET"} goal={"Someone"} imgSrc={"toMeet"} leftPadding={35}/>
+          <Wish 
+            handleClick={this.props.setWishType} 
+            objective={"MEET"} 
+            goal={"Someone"} 
+            imgSrc={"toMeet"} 
+            leftPadding={35}
+          />
           
-          <Wish objective={"BE"} goal={"Someone"} imgSrc={"toBe"} leftPadding={35}/>
+          <Wish 
+            handleClick={this.props.setWishType} 
+            objective={"BE"} 
+            goal={"Someone"} 
+            imgSrc={"toBe"} 
+            leftPadding={35}
+          />
 
-          <Wish objective={"SEE"} goal={"Something"} imgSrc={"toSee"} leftPadding={35}/>
-        </div>
-        <div className='signup-text child-signup-details' style={{fontSize: 40}}>
-          <div>
-            I <textarea type="text" name="name" placeholder="tell us about you!" style={{height: 80, width: 170, fontSize: 40, color: "#FF00A7"}}/>
-          </div>
-          <div>
-            and I wish <textarea type="text" name="name" placeholder="tell us your wish!" style={{height: 80, width: 170, fontSize: 40, color: "#FF00A7"}}/> 
-          </div>
+          <Wish 
+            handleClick={this.props.setWishType} 
+            objective={"SEE"} 
+            goal={"Something"} 
+            imgSrc={"toSee"} 
+            leftPadding={35}
+          />
         </div>
       </div>
     )
   }
 }
 
-export default ChildSignUp
+const mapStateToProps = (state) => {
+  return{
+    wishType: state.wish.wishType
+  }
+}
+
+export default connect(
+  mapStateToProps, 
+  {
+    setWishType
+  }
+)(ChildSignUp)

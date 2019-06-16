@@ -12,6 +12,13 @@ export const setDateMonth = (month) => {
   }
 }
 
+export const setWishType = (wishType) => {
+  console.log("CALLED")
+  return{
+    type: 'SET_WISH_TYPE',
+    payload: wishType
+  }
+}
 const getAllWishesFromGraphQL = () => {
   //Need to connect to GraphQL from here
   return [
