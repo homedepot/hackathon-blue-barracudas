@@ -1,19 +1,19 @@
-const express = require('express')
-const logger = require('morgan')
-const cookieParser = require('cookie-parser')
-const session = require('cookie-session')
-const bodyParser = require('body-parser')
-const compression = require('compression')
-const passport = require('passport')
+const express = require('express');
+const logger = require('morgan');
+const cookieParser = require('cookie-parser');
+const session = require('cookie-session');
+const bodyParser = require('body-parser');
+const compression = require('compression');
+const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy
 const createGraphQLLogger = require('graphql-log');
-const cors = require('cors')
+const cors = require('cors');
 const graphqlHTTP = require('express-graphql');
 
 const schema = require('./src/schema');
 const rootResolver = require('./src/resolvers');
-const index = require('./src/routes')
-const auth = require('./src/routes/auth')
+const index = require('./src/routes');
+const auth = require('./src/routes/auth');
 const mongo = require('./src/db/mongo');
 const UserDetails = require('./src/db/userDetails');
 
@@ -21,17 +21,17 @@ const app = express()
 
 const allowedOrigins = [
   'wishhack.xyz',
-  'localhost:3001'
+  'localhost'
 ];
 
 app.use(cors({
   origin: function(origin, callback){
-    allowedOrigin = allowedOrigins.find(w => origin && origin.includes(w));
-    if(!allowedOrigin){
-      var msg = 'The CORS policy for this site does not ' +
-        'allow access from the specified Origin.';
-      return callback(new Error(msg), false);
-    }
+    // allowedOrigin = allowedOrigins.find(w => origin && origin.includes(w));
+    // if(!allowedOrigin){
+    //   var msg = 'The CORS policy for this site does not ' +
+    //     'allow access from the specified Origin.';
+    //   return callback(new Error(msg), false);
+    // }
     return callback(null, true);
   },
   exposedHeaders: ['Content-Length', 'X-Foo', 'X-Bar'],
@@ -39,9 +39,8 @@ app.use(cors({
   })
 );
 
-app.use(compression())
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(cookieParser())
+app.use(compression());
+app.use(cookieParser());
 app.use(session({ keys: [process.env.cookieSigningKey || 'secretkey1'] }))
 app.use(passport.initialize());
 app.use(passport.session());
@@ -59,7 +58,7 @@ passport.deserializeUser(function(id, cb) {
   });
 });
 
-app.use('/', index)
+app.use('/', index);
 
 mongo()
   .then(db => {
@@ -90,7 +89,7 @@ mongo()
 
     const server = app.listen(port, function() {
       console.log('Express server listening on port ' + server.address().port)
-    })
+    });
 
     passport.use(new LocalStrategy(
       function(username, password, done) {
@@ -98,7 +97,7 @@ mongo()
           username: username
         }, function(err, user) {
           if (err) {
-            console.log({err})
+            console.log({err});
             return done(err);
           }
 
