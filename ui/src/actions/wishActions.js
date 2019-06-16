@@ -19,6 +19,13 @@ export const createNewWish = (childWish) => {
   }
 }
 
+export const setChildInfo = (childInfo) => {
+  return{
+    type: 'SET_CHILD_INFO',
+    payload: childInfo
+  }
+}
+
 export const setWishType = (wishType) => {
   return{
     type: 'SET_WISH_TYPE',

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Image from '../image/Image'
 import './ChildSignUp.css'
 import { connect } from 'react-redux'
-import { setWishType, createNewWish } from '../../actions/wishActions'
+import { setWishType, createNewWish, setChildInfo } from '../../actions/wishActions'
 
 const Wish = (props) => {
   return (
@@ -38,6 +38,7 @@ class ChildSignUp extends Component {
   }
 
   handleChange = (event) => {
+    console.log(this.state.age)
     event.preventDefault()
     this.setState({[event.target.name]: event.target.value})
   }
@@ -45,6 +46,7 @@ class ChildSignUp extends Component {
   submitNewWish = (wishType) => {
     this.props.setWishType(wishType)
     this.props.createNewWish(this.state)
+    this.props.setChildInfo(this.state)
     this.props.history.push('/wish-submitted')
   }
 
@@ -71,12 +73,19 @@ class ChildSignUp extends Component {
               onChange={this.handleChange}
               style={{height: 80, width: 330, fontSize: 40, color: "#FF00A7"}}
             />
-            and I am <input type="text" name="name" placeholder="your age" style={{height: 80, width: 170, fontSize: 40, color: "#FF00A7"}}/>
+            and I am 
+            <input 
+              type="text" 
+              name="age" 
+              placeholder="your age" 
+              onChange={this.handleChange}
+              style={{height: 80, width: 170, fontSize: 40, color: "#FF00A7"}}
+            />
             years old!
             I am from
             <input
               type="text"
-              name="name"
+              name="city"
               placeholder="enter your city"
               onChange={this.handleChange}
               style={{height: 80, width: 330, fontSize: 40, color: "#FF00A7"}}
@@ -86,7 +95,7 @@ class ChildSignUp extends Component {
             <div>
               I <textarea 
                 type="text" 
-                name="name" 
+                name="details" 
                 placeholder="tell us about you!" 
                 style={{height: 80, width: 170, fontSize: 40, color: "#FF00A7"}}
                 onChange={this.handleChange}
@@ -96,7 +105,7 @@ class ChildSignUp extends Component {
               and I wish 
               <textarea 
                 type="text" 
-                name="name" 
+                name="wish" 
                 placeholder="tell us your wish!" 
                 style={{height: 80, width: 170, fontSize: 40, color: "#FF00A7"}}
                 onChange={this.handleChange}
@@ -157,6 +166,7 @@ export default connect(
   mapStateToProps, 
   {
     setWishType,
-    createNewWish
+    createNewWish,
+    setChildInfo
   }
 )(ChildSignUp)

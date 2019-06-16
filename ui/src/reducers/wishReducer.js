@@ -32,7 +32,8 @@ export const getDefaultState = () => {
         updatedAt: 1561262400000
       },
     ],
-    wishType: ''
+    wishType: '',
+    childInfo: {}
   }
 }
 
@@ -54,6 +55,12 @@ const wishReducer = (state = getDefaultState(), action) => {
       return {
         ...state,
         wishType: action.payload
+      }
+    }
+    case 'SET_CHILD_INFO': {
+      return {
+        ...state,
+        childInfo: action.payload
       }
     }
     default: {
