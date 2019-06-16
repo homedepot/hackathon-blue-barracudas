@@ -6,6 +6,7 @@ import Landing from '../components/landing/Landing'
 import ManageWishes from '../components/manageWishes/ManageWishes'
 import DateList from '../components/dateList/DateList'
 import WatchAuth from '../auth/WatchAuth'
+import ChildSignUp from '../components/childsignup/ChildSignUp';
 import Admin from '../components/adminLogin/adminLogin'
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
         <Switch>
           <Route exact path="/" component={Landing} />
           <Route exact path="/login" component={Login} />
+          <Route exact path="/childsignup" component={ChildSignUp} />
           <Route exact path="/manage-wishes" component={ManageWishes} />
           <Route exact path="/date-list" component={DateList} />
           <Route exact path="/admin" component={Admin} />
