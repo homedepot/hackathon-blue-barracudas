@@ -46,11 +46,12 @@ class Login extends Component {
           username,
           password
         })
-
-      console.log(`User profile is: ${response.body}`)
+      console.log(response);
 
       this.props.history.push('/landing')
-    } catch (e) {}
+    } catch (e) {
+      console.log('error', e)
+    }
   }
 
   handleFormFieldChange = (key, { target: { value } }) => {

@@ -4,18 +4,29 @@
   "private": true,
   "dependencies": {
     "axios": "^0.19.0",
+    "bootstrap": "^4.3.1",
+    "bootswatch": "^4.3.1",
+    "connected-react-router": "^6.4.0",
+    "css": "^2.2.4",
+    "history": "^4.9.0",
+    "materialize": "^1.0.0",
+    "moment": "^2.24.0",
     "node-sass": "^4.12.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-redux": "^7.1.0",
     "react-router-dom": "^5.0.1",
-    "react-scripts": "3.0.1"
+    "react-scripts": "3.0.1",
+    "redux": "^4.0.1",
+    "redux-mock-store": "^1.5.3",
+    "redux-promise": "^0.6.0",
+    "redux-thunk": "^2.3.0"
   },
   "scripts": {
     "start": "PORT=3001 react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "test-cov": "react-scripts test --coverage",
+    "test:coverage": "react-scripts test --coverage",
     "eject": "react-scripts eject"
   },
   "proxy": "http://localhost:3002",
@@ -47,6 +58,7 @@
     "@types/jest": "^24.0.13",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
+    "enzyme-to-json": "^3.3.5",
     "prettier": "1.18.2"
   }
 }

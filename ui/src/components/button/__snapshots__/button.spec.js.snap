@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Button /> should render button component properly 1`] = `
+<span
+  className="accessory-btn"
+>
+  <button
+    className="button btnOrdAcc primary"
+    data-ga="ButtonClick|Order Accessory"
+    id="btnOrdAccessory"
+    onClick={[Function]}
+  >
+    Order Accessory
+  </button>
+</span>
+`;
