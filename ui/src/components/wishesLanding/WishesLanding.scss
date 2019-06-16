@@ -1,0 +1,51 @@
+.wishes-landing-container{
+  background-color: #2e3092;
+  width: 100%;
+  height: 100%;
+  h1, h2{
+    padding: 0;
+    display: inline-block;
+    color: white;
+  }
+  h1{
+    margin: 10px;
+    font-size: 35px;
+  }
+  h2{
+    font-size: 25px;
+  }
+  .pink-star{
+    margin: 10px;
+  }
+  .white-star{
+    margin: 20px;
+  }
+  .yellow-star{
+    margin: 30px;
+  }
+  .blue-star{
+    margin: 40px;
+  }
+  .black-star{
+    margin: 50px;
+  }
+  .green-star{
+    margin: 60px;
+  }
+  .wishes-granted-header{
+    color: white;
+    font-size: 50px;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+  }
+  .wishes-group-container{
+    display: flex;
+    flex-wrap: wrap;
+    overflow: scroll;
+    margin-left: 45px;
+  }
+  .random-star{
+    width: 150px;
+  }
+}

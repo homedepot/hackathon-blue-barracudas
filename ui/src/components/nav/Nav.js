@@ -11,15 +11,15 @@ export default class Nav extends Component{
       return (
         <div>
           <Link to='/login'>Your Name</Link>
-          <Link to='/make-your-wish'>Logout</Link>
+          <Link to='/logout'>Logout</Link>
         </div>
       )
     } else {
       return (
         <div>
-        <Link to='/'>Make Your Wish</Link>
+        <Link to='/childsignup'>Make Your Wish</Link>
          |
-        <Link to='/'>Admin</Link>
+        <Link to='/login'>Admin</Link>
       </div>
       )
     }
@@ -28,14 +28,18 @@ export default class Nav extends Component{
     return(
       <div className='nav-container'>
         <div className='logos'>
-          <Image 
-            source='logo' 
-            className='logo'
-          />
-          <Image 
-            source='logoGalaxy'
-            className='logoGalaxy'
-          />
+          <Link to='/'>
+            <Image 
+              source='logo' 
+              className='logo'
+            />
+          </Link>
+          <Link to='/'>
+            <Image 
+              source='logoGalaxy'
+              className='logoGalaxy'
+            />
+          </Link>
         </div>
           {this.renderLinks()}
       </div>

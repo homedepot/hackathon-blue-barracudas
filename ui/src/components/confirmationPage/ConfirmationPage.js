@@ -10,6 +10,7 @@ class ConfimrationPage extends Component{
   render(){
     return(
       <div className='confirmation-page-container'>
+        <Nav />
         <div className='small-container'>Great job <h2>{this.props.childInfo.name}</h2>!</div>
         <div className='small-container'>You've submitted a wish! </div>
         <Image source={this.props.wishType} className='wish-type-image' />
