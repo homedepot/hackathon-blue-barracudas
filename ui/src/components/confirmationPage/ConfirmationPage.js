@@ -13,7 +13,10 @@ class ConfimrationPage extends Component{
         <div className='small-container'>Great job <h2>{this.props.childInfo.name}</h2>!</div>
         <div className='small-container'>You've submitted a wish! </div>
         <Image source={this.props.wishType} className='wish-type-image' />
-        <div className='small-container'>The Make*A*Wish Team is reading your wish!</div>
+        <div className='small-container'> 
+          <Image source='logo' className='make-a-wish'/>
+          <div>is reading your wish!</div>
+         </div>
       </div>
     )
   }
