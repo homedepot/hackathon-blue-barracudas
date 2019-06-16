@@ -1,7 +1,7 @@
 import { GET_ALL_WISHES } from '../actions/Constants.js'
 
 export const getDefaultState = () => {
-  {
+  return {
     wishes: [
       {
         childImage: 'https://i.imgur.com/AqQrCXI.jpg?1',

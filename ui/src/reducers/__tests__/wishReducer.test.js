@@ -1,9 +1,6 @@
-import wishReducer, { getDefaultState } from '../wishReducer'
+import wishReducer from '../wishReducer'
 import { GET_ALL_WISHES } from '../../actions/Constants.js'
 
-beforeEach(() => {
-  
-})
 
 describe(GET_ALL_WISHES, () => {
   it('gets all wishes', () => {

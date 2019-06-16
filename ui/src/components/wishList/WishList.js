@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import Wish from '../wish/Wish'
 import Image from '../image/Image'
-import Nav from '../nav/Nav'
 import './WishList.scss'
+import { connect } from 'react-redux'
 
-export default class WishList extends Component{
+class WishList extends Component{
   renderImage = () =>{
     return this.props.isCurrentDate ? 'magentaMonth' : 'blueMonth'
   }
@@ -36,8 +36,7 @@ export default class WishList extends Component{
   }
   render(){
     return(
-      <div className='wish-management-container'>
-        <Nav />
+      <div className='wishes-container'>
         <div className='wishes-group-container list-group'>
           {this.renderWishList()}
         </div>
@@ -45,3 +44,14 @@ export default class WishList extends Component{
     )
   }
 }
+
+const mapStateToProps = (state) => {
+  return {
+    wishes: state.wish.wishes
+  }
+}
+
+export default connect(
+  mapStateToProps,
+  null
+)(WishList)
