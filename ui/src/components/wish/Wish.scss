@@ -4,12 +4,17 @@
   height: 100%;
   justify-content: space-between;
   align-items: center;
-  background-color: #f7f7f7;
+  background-color: white;
   border-radius: 0;
+  padding: 10px;
   box-shadow: 1px solid rgba(1,1,1,0.1);
   img{
-    max-width: 100px;
-    max-height: 100px;
+    max-width: 90px;
+    max-height: 90px;
+  }
+  .child-details-container{
+    display: flex;
+    flex-direction: column;
   }
   .rounded-image{
     border-radius: 100%;
@@ -26,6 +31,9 @@
         max-height: 100px;
       }
     }
+  }
+  .gray-text{
+    color: #222;
   }
   .vertical-line{
     border-right: 1.5px solid rgba(1,1,1,0.1);

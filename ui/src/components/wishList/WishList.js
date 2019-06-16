@@ -8,26 +8,29 @@ class WishList extends Component{
   renderImage = () =>{
     return this.props.isCurrentDate ? 'magentaMonth' : 'blueMonth'
   }
-
+  dateColor = () => {
+    return this.props.isCurrentDate ? 'magenta' : 'blue'
+  }
   renderWishList = () => {
-    return this.props.wishes.map((child, index)=>{
+    return this.props.wishes.map((wish, index)=>{
       return(
         <div 
             className='wish-item-wrapper'             
             key={index} 
         >
         <div className='calender-image'>
-          <Image source={this.renderImage()}/>
+          <Image source={this.renderImage()} className='calendar'/>
+          <div class={`date ${this.dateColor()}`}>{wish.dateUpdated}</div>
         </div>
         <div className='list-group-item list-group-item-container'>
           <Wish
-            childImage={'https://i.imgur.com/AqQrCXI.jpg?1'}
-            childName={'Lark'}
-            childAge={3}
-            childDetails={'Lark loves fun!'}
-            childTown={'Ancorage'}
-            sponsor={'https://i.imgur.com/tKtG0lp.jpg'}
-            wishType={'toGo'}
+            childImage={wish.childImage}
+            childName={wish.childName}
+            childAge={wish.childAge}
+            childDetails={wish.childDetails}
+            childTown={wish.childTown}
+            sponsor={wish.sponsor}
+            wishType={wish.wishType}
           />
         </div>
         </div>

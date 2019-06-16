@@ -11,6 +11,7 @@ export const getDefaultState = () => {
         childTown: 'Ancorage',
         sponsor: 'https://i.imgur.com/CJjcguK.jpg',
         wishType: 'toGo',
+        dateUpdated: 1
       },
       {
         childImage: 'https://i.imgur.com/AqQrCXI.jpg?1',
@@ -20,6 +21,7 @@ export const getDefaultState = () => {
         childTown: 'Ancorage',
         sponsor: 'https://i.imgur.com/CJjcguK.jpg',
         wishType: 'toGo',
+        dateUpdated: 2
       },
       {
         childImage: 'https://i.imgur.com/AqQrCXI.jpg?1',
@@ -29,6 +31,7 @@ export const getDefaultState = () => {
         childTown: 'Ancorage',
         sponsor: 'https://i.imgur.com/CJjcguK.jpg',
         wishType: 'toGo',
+        dateUpdated: 3
       },
     ]
   }
