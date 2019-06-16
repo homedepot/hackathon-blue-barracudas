@@ -7,11 +7,15 @@ const Wish = props => {
     <div style={{ display: 'inline-block', paddingLeft: `${props.leftPadding}px` }}>
       <div
         style={{
-          width: 120,
+          width: 150,
+          height: 150,
           backgroundColor: 'white',
-          borderColor: 'grey',
+          borderColor: '#0870b8',
           borderWidth: 5,
-          borderStyle: 'solid'
+          borderStyle: 'solid',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
         }}
       >
         <Image source={`${props.imgSrc}`} />
@@ -47,16 +51,24 @@ class ChildSignUp extends Component {
         </div>
         <form>
           <div className="signup-text" style={{fontSize: 40}}>
-            My name is{' '}
+            My name is
             <input
               type="text"
               name="name"
               placeholder="enter your name"
               onChange={this.setName}
               style={{height: 80, width: 330, fontSize: 40, color: "#FF00A7"}}
-            />{' '}
-            and I am <input type="text" name="name" placeholder="your age" style={{height: 80, width: 170, fontSize: 40, color: "#FF00A7"}}/>{' '}
+            />
+            and I am <input type="text" name="name" placeholder="your age" style={{height: 80, width: 170, fontSize: 40, color: "#FF00A7"}}/>
             years old!
+            I am from
+            <input
+              type="text"
+              name="name"
+              placeholder="enter your city"
+              onChange={this.setName}
+              style={{height: 80, width: 330, fontSize: 40, color: "#FF00A7"}}
+            />
           </div>
         </form>
         <div>
@@ -72,6 +84,14 @@ class ChildSignUp extends Component {
           <Wish objective={"BE"} goal={"Someone"} imgSrc={"toBe"} leftPadding={35}/>
 
           <Wish objective={"SEE"} goal={"Something"} imgSrc={"toSee"} leftPadding={35}/>
+        </div>
+        <div className='signup-text child-signup-details' style={{fontSize: 40}}>
+          <div>
+            I <textarea type="text" name="name" placeholder="tell us about you!" style={{height: 80, width: 170, fontSize: 40, color: "#FF00A7"}}/>
+          </div>
+          <div>
+            and I wish <textarea type="text" name="name" placeholder="tell us your wish!" style={{height: 80, width: 170, fontSize: 40, color: "#FF00A7"}}/> 
+          </div>
         </div>
       </div>
     )

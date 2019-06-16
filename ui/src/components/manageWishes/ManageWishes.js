@@ -1,4 +1,5 @@
 import WishList from '../wishList/WishList'
+import Nav from '../nav/Nav'
 import React, { Component } from 'react'
 import { getAllWishes } from '../../actions/wishActions'
 import './ManageWishes.scss'
@@ -11,6 +12,7 @@ class ManageWishes extends Component{
   render(){
     return(
       <div className='manage-wishes-container'>
+        <Nav />
         <div className='all-wishes-container'>
           <WishList/>
         </div>
