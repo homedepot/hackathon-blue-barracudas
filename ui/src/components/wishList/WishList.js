@@ -1,33 +1,42 @@
 import React, { Component } from 'react'
 import Wish from '../wish/Wish'
 import Image from '../image/Image'
-import Nav from '../nav/Nav'
 import './WishList.scss'
+import { connect } from 'react-redux'
+import moment from 'moment'
 
-export default class WishList extends Component{
-  renderImage = () =>{
-    return this.props.isCurrentDate ? 'magentaMonth' : 'blueMonth'
+class WishList extends Component{
+  isCurrentDate = (date) => {
+    const recordDate = moment(date).date()
+    const currentDate = moment().date()
+    return moment(recordDate).isSame(moment(currentDate))
   }
-
+  renderImage = (date) =>{
+    return this.isCurrentDate(date) ? 'magentaMonth' : 'blueMonth'
+  }
+  dateColor = (date) => {
+    return this.isCurrentDate(date) ? 'magenta' : 'blue'
+  }
   renderWishList = () => {
-    return this.props.wishes.map((child, index)=>{
+    return this.props.wishes.map((wish, index)=>{
       return(
         <div 
             className='wish-item-wrapper'             
             key={index} 
         >
         <div className='calender-image'>
-          <Image source={this.renderImage()}/>
+          <Image source={this.renderImage(wish.updatedAt)} className='calendar'/>
+          <div className={`date ${this.dateColor(wish.updatedAt)}`}>{moment(wish.updatedAt).date()}</div>
         </div>
         <div className='list-group-item list-group-item-container'>
           <Wish
-            childImage={'https://i.imgur.com/AqQrCXI.jpg?1'}
-            childName={'Lark'}
-            childAge={3}
-            childDetails={'Lark loves fun!'}
-            childTown={'Ancorage'}
-            sponsor={'https://i.imgur.com/tKtG0lp.jpg'}
-            wishType={'toGo'}
+            childImage={wish.childImage}
+            childFirstName={wish.childFirstName}
+            childAge={wish.childAge}
+            wishDetailsText={wish.wishDetailsText}
+            childHomeCity={wish.childHomeCity}
+            sponsor={wish.sponsor}
+            wishType={wish.wishType}
           />
         </div>
         </div>
@@ -36,8 +45,7 @@ export default class WishList extends Component{
   }
   render(){
     return(
-      <div className='wish-management-container'>
-        <Nav />
+      <div className='wishes-container'>
         <div className='wishes-group-container list-group'>
           {this.renderWishList()}
         </div>
@@ -45,3 +53,14 @@ export default class WishList extends Component{
     )
   }
 }
+
+const mapStateToProps = (state) => {
+  return {
+    wishes: state.wish.wishes
+  }
+}
+
+export default connect(
+  mapStateToProps,
+  null
+)(WishList)

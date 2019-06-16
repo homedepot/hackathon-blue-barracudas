@@ -10,8 +10,10 @@ export default class Wish extends Component {
         <div className='profile-picture'>
           <img className='rounded-image' alt='Profile picture' src={this.props.childImage} />
         </div>
-        <p className='lead'><h3>{this.props.childName}</h3> - Age {this.props.childAge} from {this.props.childTown}</p>
-        <p className='child-details'>{this.props.childDetails}</p>    
+        <div className='child-details-container'>
+          <p className='lead gray-text'><span>{this.props.childFirstName}</span> - Age {this.props.childAge} from {this.props.childHomeCity}</p>
+          <p className='child-details'>{this.props.wishDetailsText}</p>    
+        </div>
         <div className='vertical-line'></div>    
         <div className='wish information'>
              <div className='sponsor'>

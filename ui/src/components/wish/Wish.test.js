@@ -13,14 +13,14 @@ const renderComponent = (props) => {
 
 beforeEach(()=>{
   props = {
-    onClick: jest.fn(),
-    childImage: 'image.jpg',
-    childName: 'Lark',
+    childImage: 'img.jpg?1',
+    childFirstName: 'Lark',
     childAge: '3',
-    childDetails: 'Lark loves fun!',
-    childTown: 'Ancorage',
-    sponsor: 'image.jpg',
+    wishDetailsText: 'Lark loves fun!',
+    childHomeCity: 'Ancorage',
+    sponsor: 'img.jpg',
     wishType: 'toGo',
+    updatedAt: 1
   }
   component = renderComponent(props)
 })
@@ -32,13 +32,13 @@ it('displays the child image', ()=>{
 
 it('displays the child name and age', ()=>{
   const childPersonalDetails = component.find('.lead')
-  const expected = `${props.childName} - Age ${props.childAge} from ${props.childTown}`
+  const expected = `${props.childFirstName} - Age ${props.childAge} from ${props.childHomeCity}`
   expect(childPersonalDetails.text()).toEqual(expected)
 })
 
 it('displays the child description', ()=>{
   const childDetails = component.find('.child-details')
-  expect(childDetails.text()).toEqual(props.childDetails)
+  expect(childDetails.text()).toEqual(props.wishDetailsText)
 })
 
 it('displays the sponsor logo', ()=>{

@@ -29,6 +29,6 @@ describe('Default routing behavior', () => {
       .at(2)
       .props()
 
-    expect(wishRoute.path).toEqual('/wishes')
+    expect(wishRoute.path).toEqual('/manage-wishes')
   })
 })

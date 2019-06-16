@@ -1,5 +1,5 @@
+import ManageWishes from './ManageWishes'
 import React from 'react'
-import WishList from './WishList'
 import { mount } from 'enzyme'
 import { Provider } from 'react-redux'
 import configureStore from 'redux-mock-store'
@@ -14,7 +14,7 @@ let store
 const renderComponent = (store) => {
   return mount(
     <Provider store={store}>
-      <WishList />
+      <ManageWishes />
     </Provider>
   )
 }
@@ -38,16 +38,7 @@ beforeEach(()=>{
   component = renderComponent(store)
 })
 
-it('sets the color of the date display to magenta', ()=>{
- const calendarComponent = component.find('Image')
- expect(calendarComponent.at(0).props().source).toEqual('blueMonth')
-})
-
-it('sets the color of the date display to blue', ()=>{
-  const calendarComponent = component.find('.date')
-  expect(calendarComponent.at(0).props().className).toEqual('date blue')})
-
-it('displays wish list depending on number of wishes', ()=>{
-  const wishes = component.find('Wish')
-  expect(wishes.length).toEqual(1)
+it('displays the WishList component', ()=>{
+  const wishListComponent = component.find('WishList')
+  expect(wishListComponent.length).toEqual(1)
 })
