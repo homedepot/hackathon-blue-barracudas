@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Image from '../image/Image'
 import './ChildSignUp.css'
 import { connect } from 'react-redux'
-import { setWishType } from '../../actions/wishActions'
+import { setWishType, createNewWish } from '../../actions/wishActions'
 
 const Wish = (props) => {
   return (
@@ -40,6 +40,12 @@ class ChildSignUp extends Component {
   handleChange = (event) => {
     event.preventDefault()
     this.setState({[event.target.name]: event.target.value})
+  }
+
+  submitNewWish = (wishType) => {
+    this.props.setWishType(wishType)
+    this.props.createNewWish(this.state)
+    this.props.history.push('/wish-submitted')
   }
 
   render() {
@@ -105,7 +111,7 @@ class ChildSignUp extends Component {
         
         <div>
           <Wish 
-              handleClick={this.props.setWishType} 
+              handleClick={this.submitNewWish} 
               objective={"GO"} 
               goal={"Somewhere"} 
               imgSrc={"toGo"} 
@@ -113,7 +119,7 @@ class ChildSignUp extends Component {
           />
 
           <Wish 
-            handleClick={this.props.setWishType} 
+            handleClick={this.submitNewWish} 
             objective={"MEET"} 
             goal={"Someone"} 
             imgSrc={"toMeet"} 
@@ -121,7 +127,7 @@ class ChildSignUp extends Component {
           />
           
           <Wish 
-            handleClick={this.props.setWishType} 
+            handleClick={this.submitNewWish} 
             objective={"BE"} 
             goal={"Someone"} 
             imgSrc={"toBe"} 
@@ -129,7 +135,7 @@ class ChildSignUp extends Component {
           />
 
           <Wish 
-            handleClick={this.props.setWishType} 
+            handleClick={this.submitNewWish} 
             objective={"SEE"} 
             goal={"Something"} 
             imgSrc={"toSee"} 
@@ -150,6 +156,7 @@ const mapStateToProps = (state) => {
 export default connect(
   mapStateToProps, 
   {
-    setWishType
+    setWishType,
+    createNewWish
   }
 )(ChildSignUp)
