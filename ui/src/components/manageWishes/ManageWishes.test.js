@@ -1,6 +1,5 @@
 import ManageWishes from './ManageWishes'
 import React from 'react'
-import { shallow } from 'enzyme'
 import { mount } from 'enzyme'
 import { Provider } from 'react-redux'
 import configureStore from 'redux-mock-store'
@@ -10,16 +9,36 @@ const middlewares = [thunkMiddleware, promiseMiddleware]
 const mockStore = configureStore(middlewares)
 
 let component
-const renderComponent = () => {
-  return shallow(
-    <ManageWishes/>
+let store
+
+const renderComponent = (store) => {
+  return mount(
+    <Provider store={store}>
+      <ManageWishes />
+    </Provider>
   )
 }
+
 beforeEach(()=>{
-  component = renderComponent()
+  store = mockStore({
+    wish:{
+      wishes: 
+      [{
+        childImage: 'img.jpg?1',
+        childFirstName: 'Lark',
+        childAge: '3',
+        wishDetailsText: 'Lark loves fun!',
+        childHomeCity: 'Ancorage',
+        sponsor: 'img.jpg',
+        wishType: 'toGo',
+        updatedAt: 1561262400000
+      }]
+    }
+  })
+  component = renderComponent(store)
 })
 
 it('displays the WishList component', ()=>{
   const wishListComponent = component.find('WishList')
-  expect(wishListComponent).toBeDefined()
+  expect(wishListComponent.length).toEqual(1)
 })

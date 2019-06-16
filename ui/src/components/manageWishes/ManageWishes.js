@@ -1,7 +1,13 @@
 import WishList from '../wishList/WishList'
 import React, { Component } from 'react'
+import { getAllWishes } from '../../actions/wishActions'
 import './ManageWishes.scss'
-export default class ManageWishes extends Component{
+import { connect } from 'react-redux';
+class ManageWishes extends Component{
+  componentDidMount(){
+    this.props.getAllWishes()
+  }
+
   render(){
     return(
       <div className='manage-wishes-container'>
@@ -12,3 +18,17 @@ export default class ManageWishes extends Component{
     )
   }
 }
+
+const mapStateToProps = (state) => {
+  return {
+    wishes: state.wish.wishes
+  }
+}
+
+
+export default connect(
+  mapStateToProps, 
+  {
+    getAllWishes
+  }
+)(ManageWishes)
