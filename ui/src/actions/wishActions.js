@@ -20,7 +20,6 @@ export const createNewWish = (childWish) => {
 }
 
 export const setWishType = (wishType) => {
-  console.log("CALLED")
   return{
     type: 'SET_WISH_TYPE',
     payload: wishType
@@ -28,6 +27,7 @@ export const setWishType = (wishType) => {
 }
 
 const createNewWishInGraphQL = (childWish) => {
+  //Put call to create wish in GraphQL here
   console.log(childWish)
 }
 const getAllWishesFromGraphQL = () => {
