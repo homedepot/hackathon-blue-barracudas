@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './adminLogin.css';
 import Image from '../image/Image'
+import { Link } from 'react-router-dom'
 
 class AdminLogin extends Component {
 
@@ -20,7 +21,7 @@ class AdminLogin extends Component {
     return (
       <div className="admin-login-container">
         <div className="login">
-          <Image source='logo' alt="Logo" className='logo-admin' />
+          <Link to='/'><Image source='logo' alt="Logo" className='logo-admin' /></Link>
           <h6>Admin Login</h6>
           <div className='inputs'>
             <label>username</label> 
