@@ -3,6 +3,7 @@ import Image from '../image/Image'
 import './ChildSignUp.css'
 import { connect } from 'react-redux'
 import { setWishType, createNewWish, setChildInfo } from '../../actions/wishActions'
+import Nav from '../nav/Nav'
 
 const Wish = (props) => {
   return (
@@ -56,12 +57,11 @@ class ChildSignUp extends Component {
         className="signup-card"
         style={{ fontFamily: 'Arial Rounded MT Bold' }}
       >
+        <Nav />
         <div style={{display: "flex" }}>
           <h1 className="signup-text" style={{ marginTop: 0, fontSize: 80, display: "inline-block" }}>
             Hello, everyone!
           </h1>
-          <Image source="logo" style={{ height: "60%", width: "20%", display: "inline-block", marginLeft: 40}}/>
-          <Image source="logoGalaxyColor" style={{ height: "60%", width: "20%", display: "inline-block"}}/>
         </div>
         <form className='child-signup-form'>
           <div className="signup-text" style={{fontSize: 40}}>

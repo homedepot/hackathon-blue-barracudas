@@ -10,12 +10,10 @@ class ConfimrationPage extends Component{
   render(){
     return(
       <div className='confirmation-page-container'>
-        <div>
-          <div>Great job <h2>{this.props.childInfo.name}</h2>!</div>
-          <div>You've submitted a wish! </div>
-          <Image src={this.props.wishType} />
-          <div>The Make*A*Wish Team is reading your wish!</div>
-        </div>
+        <div className='small-container'>Great job <h2>{this.props.childInfo.name}</h2>!</div>
+        <div className='small-container'>You've submitted a wish! </div>
+        <Image source={this.props.wishType} className='wish-type-image' />
+        <div className='small-container'>The Make*A*Wish Team is reading your wish!</div>
       </div>
     )
   }

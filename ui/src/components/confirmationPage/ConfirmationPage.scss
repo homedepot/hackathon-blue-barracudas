@@ -10,12 +10,20 @@
   align-items: center;
   justify-content: space-around;
   font-family: "Arial Rounded MT Bold";
-  font-size: 80px;
+  font-size: 60px;
   color: #2e3092;
+  .wish-type-image{
+    width: 200px;
+  }
+  .small-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   h2{
     display: inline-block;
     color: #FF00A7;
-    font-size: 80px;
+    font-size: 60px;
 
   }
 }
