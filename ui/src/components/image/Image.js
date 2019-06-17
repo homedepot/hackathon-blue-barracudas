@@ -11,13 +11,14 @@ export default class Image extends Component {
   }
 
   handleClick = (event) => {
-    if (this.props.onClick) {
-      this.props.onClick(event)
-    }
+    // if (this.props.onClick) {
+    //   this.props.onClick(event)
+    // }
   }
 
   render() {
-    const { className, style } = this.props
+    const { className, style } = this.props;
+
     return (
       <img
         className={className}
