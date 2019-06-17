@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 mongoose.set('debug', true);
-mongoose.connect('mongodb://localhost/make_a_wish');
+const url = process.env.mongoUrl || 'mongodb://mongo/my_database'
+mongoose.connect(url);
+
 
 const Schema = mongoose.Schema;
 const UserDetailsSchema = new Schema({
