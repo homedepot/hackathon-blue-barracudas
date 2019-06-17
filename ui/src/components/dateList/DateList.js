@@ -23,7 +23,7 @@ class DateList extends Component {
     ]
   }
   setDateMonth = (month) => {
-    if (this.props.dateMonth != month){
+    if (this.props.dateMonth !== month){
       this.props.setDateMonth(month)
     }
   }

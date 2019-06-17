@@ -27,7 +27,10 @@ class Nav extends Component{
       ? (
         <div>
           Welcome { cookies.get('user') } |
-          <a href='#' onClick={this.logOut}>Logout</a>
+          <div
+            onClick={this.logOut}
+            style={{ cursor: 'pointer' }}
+          >Logout</div>
         </div>
       )
       : (

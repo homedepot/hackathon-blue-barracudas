@@ -1,4 +1,3 @@
-import WishList from '../wishList/WishList'
 import Nav from '../nav/Nav'
 import React, { Component } from 'react'
 import './ConfirmationPage.scss'
