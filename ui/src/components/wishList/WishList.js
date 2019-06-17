@@ -4,6 +4,7 @@ import Image from '../image/Image'
 import './WishList.scss'
 import { connect } from 'react-redux'
 import moment from 'moment'
+import { checkOffWish, addSponsor } from '../../actions/wishActions'
 
 class WishList extends Component{
   isCurrentDate = (date) => {
@@ -17,6 +18,15 @@ class WishList extends Component{
   dateColor = (date) => {
     return this.isCurrentDate(date) ? 'magenta' : 'blue'
   }
+
+  renderDayOrCheck = (wish) => {
+    if(wish.status === 'Complete'){
+     return <Image source='check' className='date check-size'/>
+    }else {
+     return <div className={`date ${this.dateColor(wish.updatedAt)}`}>{moment(wish.updatedAt).date()}</div>
+    }
+  }
+
   renderWishList = () => {
     return this.props.wishes.map((wish, index)=>{
       return(
@@ -25,8 +35,8 @@ class WishList extends Component{
             key={index} 
         >
         <div className='calender-image'>
-          <Image source={this.renderImage(wish.updatedAt)} className='calendar'/>
-          <div className={`date ${this.dateColor(wish.updatedAt)}`}>{moment(wish.updatedAt).date()}</div>
+          <Image source={this.renderImage(wish.updatedAt)} className='calendar' onClick={this.props.checkOffWish(wish.id)}/>
+          {this.renderDayOrCheck(wish)}
         </div>
         <div className='list-group-item list-group-item-container'>
           <Wish
@@ -37,6 +47,8 @@ class WishList extends Component{
             childHomeCity={wish.childHomeCity}
             sponsor={wish.sponsor}
             wishType={wish.wishType}
+            id={wish.id}
+            addSponsor={addSponsor}
           />
         </div>
         </div>
@@ -62,5 +74,8 @@ const mapStateToProps = (state) => {
 
 export default connect(
   mapStateToProps,
-  null
+  {
+    checkOffWish,
+    addSponsor
+  }
 )(WishList)

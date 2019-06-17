@@ -4,6 +4,7 @@ import Nav from '../nav/Nav'
 import './WishesLanding.scss'
 import { connect } from 'react-redux'
 import { getAllWishes } from '../../actions/wishActions'
+import { setChildInfo } from '../../actions/wishActions'
 
 class WishList extends Component{
   componentDidMount(){
@@ -21,12 +22,18 @@ class WishList extends Component{
     ]
     return stars[Math.floor(Math.random()*stars.length)]
   }
+
+  goToChild = (childInfo) => {
+    this.props.setChildInfo(childInfo)
+    this.props.history.push('/child-details')
+  }
   renderWishList = () => {
     return this.props.wishes.map((wish, index)=>{
       return(
         <div 
             className='public-wishes-wrapper'             
             key={index} 
+            onClick={() => this.goToChild(wish)}
         >
           <Image source={this.randomStar()} className={`random-star ${this.randomStar()}`}/>
           <div>
@@ -61,6 +68,7 @@ const mapStateToProps = (state) => {
 export default connect(
   mapStateToProps,
   {
-    getAllWishes
+    getAllWishes,
+    setChildInfo
   }
 )(WishList)

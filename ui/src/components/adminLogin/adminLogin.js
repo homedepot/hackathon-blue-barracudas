@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './adminLogin.css';
+import './AdminLogin.css';
 import Image from '../image/Image'
 import { Link } from 'react-router-dom'
 import Nav from '../nav/Nav'

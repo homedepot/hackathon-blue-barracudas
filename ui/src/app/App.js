@@ -6,8 +6,9 @@ import ManageWishes from '../components/manageWishes/ManageWishes'
 import DateList from '../components/dateList/DateList'
 import WatchAuth from '../auth/WatchAuth'
 import ChildSignUp from '../components/childsignup/ChildSignUp';
+import ChildDetails from '../components/childDetails/ChildDetails';
 import ConfirmationPage from '../components/confirmationPage/ConfirmationPage';
-import Admin from '../components/adminLogin/adminLogin'
+import Admin from '../components/adminLogin/AdminLogin'
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Switch>
           <Route exact path="/" component={WishesLanding} />
           <Route exact path="/childsignup" component={ChildSignUp} />
+          <Route exact path="/child-details" component={ChildDetails} />
           <Route exact path="/wish-submitted" component={ConfirmationPage} />
           <Route exact path="/manage-wishes" component={ManageWishes} />
           <Route exact path="/date-list" component={DateList} />
