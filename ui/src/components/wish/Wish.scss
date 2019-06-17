@@ -8,12 +8,14 @@
   border-radius: 0;
   padding: 10px;
   box-shadow: 1px solid rgba(1,1,1,0.1);
-  .sponsor-name::placeholder{
+  .sponsorName{
       font-size: 16px;
       color: grey;
+      margin-top: 40px;
     }
-  .sponsor-name{
-    height: 50px !important;
+
+  .sponsorName .div{
+    margin-bottom:0px;
   }
   
   .other-options{
@@ -51,6 +53,7 @@
     }
   }
   .child-wish-details-container{
+    width: 100%;
     display: flex;
     flex-direction: column;
   }
@@ -79,7 +82,7 @@
   }
   .wish{
     height: 100%;
-    width: 50%;
+    width: 30%;
   }
   .profile-picture{
     margin-left: 25px;
