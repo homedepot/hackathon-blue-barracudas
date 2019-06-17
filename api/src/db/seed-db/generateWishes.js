@@ -2,10 +2,10 @@ const faker = require('faker');
 const sample = require("lodash").sample;
 
 const wishDetails = [
-  "I want to be a whale trainer at the georgia Aquriam",
+  "Be a whale trainer at the Georgia Aquarium",
   "Go on set of my favorite Disney Channel Show, Andi Mack",
   "Meet superman",
-  "I want to ride an elephant",
+  "Ride an elephant",
 ];
 
 const requestTypes = [

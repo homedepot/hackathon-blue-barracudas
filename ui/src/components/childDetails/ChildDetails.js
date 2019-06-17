@@ -2,9 +2,10 @@ import Nav from '../nav/Nav'
 import React, { Component } from 'react'
 import './ChildDetails.scss'
 import Image from '../image/Image'
-
 import { connect } from 'react-redux';
+
 class ChildDetails extends Component{
+
   randomChild = () => {
     const children = [
       "pink-child",
@@ -13,23 +14,29 @@ class ChildDetails extends Component{
       "blue-child",
       "black-child",
       "green-child",
-    ]
+    ];
     return children[Math.floor(Math.random()*children.length)]
-  }
+  };
 
   wishType = () => {
-    if(this.props.wishType === 'toBe'){
-      return 'to be who I want!'
-    }else if(this.props.wishType === 'toGo'){
-      return 'to go to my favorite place!'
-    }else if(this.props.wishType === 'toSee'){
-      return 'to see the coolest thing!'
-    }else{
-      return 'to meet my hero!'
-    }
+    switch(this.props.childInfo.wishType) {
+      case 'Go Somewhere':  return('to go to my favorite place!');
+      case 'Meet Someone':  return('to meet my hero!');
+      case 'Be Someone':    return('to be who I want!');
+      case 'See Something': return('to see the coolest thing!');
+    };
+  };
+
+  wishDetails = () => {
+    console.log('props is set to : ', this.props);
+    const wishDetailsText = this.props.childInfo.wishDetailsText;
+    return wishDetailsText.charAt(0).toLowerCase()
+            + wishDetailsText.substring(1, wishDetailsText.length);
   }
+
+
   render(){
-    const { childFirstName, childHomeCity, wishDetailsText } = this.props.childInfo 
+    const { childFirstName, childHomeCity } = this.props.childInfo;
     
     return(
       <div className='child-details-container'>
@@ -37,7 +44,10 @@ class ChildDetails extends Component{
         <div className='child-info-container'>
           <Image source={this.randomChild()}/>
           <div className='wish-details'>
-            Hi! My name is {childFirstName}. {wishDetailsText} I am from {childHomeCity}. My wish came true when <Image source='logo' className='wish-logo'/> helped me {this.wishType()}
+            <p>Hi! My name is {childFirstName}. My wish is to {this.wishDetails()}.</p>
+            <p>I am from {childHomeCity}.</p>
+            <p>My wish came true when <Image source='logo' className='wish-logo'/>
+              helped me {this.wishType()}</p>
           </div>
         </div>
       </div>
@@ -49,8 +59,7 @@ const mapStateToProps = (state) => {
   return {
     childInfo: state.wish.childInfo,
   }
-}
-
+};
 
 export default connect(
   mapStateToProps, 
