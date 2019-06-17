@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import Image from '../image/Image'
 import { Link } from 'react-router-dom'
 import './Nav.scss'
+import Cookies from 'universal-cookie';
+const cookies = new Cookies();
 
 class Nav extends Component{
 
@@ -13,30 +15,29 @@ class Nav extends Component{
 
   state = {
     isLoggedIn: false,
-  }
+  };
 
   showNavButtons = () => {
     return this.props.navButtons !== "false";
-  }
+  };
 
-  renderLinks = () => {
-    if (this.state.isLoggedIn){
-      return (
+  userLoggedIn = () => { return !!cookies.get('user') };
+
+  renderLinks = () =>
+    this.userLoggedIn()
+      ? (
         <div>
-          <div>Your Name</div>
+          Welcome { cookies.get('user') } |
           <Link to='/logout'>Logout</Link>
         </div>
       )
-    } else {
-      return (
+      : (
         <div>
-        <Link to='/childsignup'>Make Your Wish</Link>
-         |
-        <Link to='/admin'>Admin</Link>
-      </div>
-      )
-    }
-  }
+          <Link to='/childsignup'>Make Your Wish</Link> |
+          <Link to='/admin'>Admin</Link>
+        </div>
+      );
+
   render(){
     return(
       <div className='nav-container'>

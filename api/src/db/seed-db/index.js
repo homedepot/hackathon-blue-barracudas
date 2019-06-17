@@ -8,7 +8,7 @@ class SeedDb {
     await this.seedCollection('sponsors');
     await this.seedCollection('userDetails');
     process.exit(0);
-  }
+  };
 
   // Private below this line ----------
 
@@ -23,7 +23,7 @@ class SeedDb {
     const records = JSON.parse(fs.readFileSync(filePath));
     await (await this.db()).collection(collectionName).insertMany(records);
     console.log(`Seeded '${collectionName}' successfully`);
-  }
+  };
 
   db = async () => {
     if (this.mongo) { return this.mongo }

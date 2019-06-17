@@ -3,6 +3,8 @@ import './adminLogin.css';
 import Image from '../image/Image'
 import Nav from '../nav/Nav'
 import axios from "axios";
+import Cookies from 'universal-cookie';
+const cookies = new Cookies();
 
 class AdminLogin extends Component {
 
@@ -32,6 +34,7 @@ class AdminLogin extends Component {
           });
       console.log('response: ', response.data);
       if(response.data.login == 'Successful') {
+        cookies.set('user', response.data.user, { path: '/' });
         this.props.history.push('/manage-wishes')
       } else {
         alert("Login unsuccessful")
