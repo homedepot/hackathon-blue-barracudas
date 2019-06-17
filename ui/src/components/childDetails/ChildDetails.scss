@@ -1,0 +1,21 @@
+.child-details-container{
+  background-color: #78C2AD;
+  height: 100vh;
+  width: 100%;
+  font-size: 50px;
+  .child-info-container{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    margin-top: 150px;
+    color: white;
+    align-items: flex-end;
+  }
+  .wish-logo{
+    height: 50px;
+    margin-bottom: 14px;
+  }
+  .wish-details{
+    width: 50%;
+  }
+}
