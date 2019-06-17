@@ -33,10 +33,33 @@ export const setWishType = (wishType) => {
   }
 }
 
+export const addSponsor = (wishId) => {
+  return{
+    type: 'ADD_SPONSOR',
+    payload: addSponsorInGraphQL(wishId)
+  }
+}
+
+export const checkOffWish = (wishId) => {
+  return{
+    type: 'SET_WISH_TYPE',
+    payload: changeStatusToCompleteInGraphQL(wishId)
+  }
+}
+
 const createNewWishInGraphQL = (childWish) => {
   //Put call to create wish in GraphQL here
   console.log(childWish)
 }
+const addSponsorInGraphQL = (wishId) => {
+  //Put call to update sponsor here
+  console.log(wishId)
+}
+const changeStatusToCompleteInGraphQL = (wishId) => {
+  //Put call to change status to complete here
+  console.log(wishId)
+}
+
 const getAllWishesFromGraphQL = () => {
   //Need to connect to GraphQL from here
   return [
@@ -46,7 +69,7 @@ const getAllWishesFromGraphQL = () => {
       childAge: '3',
       wishDetailsText: 'Lark loves fun!',
       childHomeCity: 'Ancorage',
-      sponsor: 'https://i.imgur.com/CJjcguK.jpg',
+      sponsor: '',
       wishType: 'toGo',
       updatedAt: 1561262400000
     },
@@ -58,7 +81,8 @@ const getAllWishesFromGraphQL = () => {
       childHomeCity: 'Ancorage',
       sponsor: 'https://i.imgur.com/CJjcguK.jpg',
       wishType: 'toGo',
-      updatedAt: 1561262400000
+      updatedAt: 1561262400000,
+      status: 'Complete'
     },
     {
       childImage: 'https://i.imgur.com/AqQrCXI.jpg?1',

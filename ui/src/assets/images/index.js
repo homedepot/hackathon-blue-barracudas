@@ -23,6 +23,8 @@ const images = {
   "blue-child": require('./blue-child.png'),
   "black-child": require('./black-child.png'),
   "green-child": require('./green-child.png'),
+  "add": require('./add.png'),
+  "check": require('./check.png'),
 }
 
 
