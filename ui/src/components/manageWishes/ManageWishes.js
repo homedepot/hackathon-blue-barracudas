@@ -4,7 +4,16 @@ import React, { Component } from 'react'
 import { getAllWishes } from '../../actions/wishActions'
 import './ManageWishes.scss'
 import { connect } from 'react-redux';
+import Cookies from 'universal-cookie';
+const cookies = new Cookies();
+
 class ManageWishes extends Component{
+
+  constructor(props) {
+    super(props);
+    if (!cookies.get('user')) this.props.history.push('/admin');
+  }
+
   componentDidMount(){
     this.props.getAllWishes()
   }
@@ -25,8 +34,7 @@ const mapStateToProps = (state) => {
   return {
     wishes: state.wish.wishes
   }
-}
-
+};
 
 export default connect(
   mapStateToProps, 

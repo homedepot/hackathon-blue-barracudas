@@ -40,7 +40,7 @@ class AdminLogin extends Component {
         alert("Login unsuccessful")
       }
     } catch (e) {
-      console.log('error', e)
+      console.log('error', e);
       alert("Error logging in!")
     }
   };

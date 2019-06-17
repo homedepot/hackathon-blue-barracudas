@@ -1,3 +1,4 @@
+import { withRouter } from 'react-router-dom';
 import React, { Component } from 'react'
 import Image from '../image/Image'
 import { Link } from 'react-router-dom'
@@ -9,26 +10,24 @@ class Nav extends Component{
 
   constructor(props) {
     super(props);
-    this.props = props;
     console.log('Nav props: ', props);
   }
 
-  state = {
-    isLoggedIn: false,
-  };
+  showNavButtons = () => this.props.navButtons !== "false";
+  userLoggedIn = () => !!cookies.get('user');
 
-  showNavButtons = () => {
-    return this.props.navButtons !== "false";
-  };
-
-  userLoggedIn = () => { return !!cookies.get('user') };
+  logOut = (e) => {
+    e.preventDefault();
+    cookies.remove('user');
+    this.props.history.push('/admin');
+  }
 
   renderLinks = () =>
     this.userLoggedIn()
       ? (
         <div>
           Welcome { cookies.get('user') } |
-          <Link to='/logout'>Logout</Link>
+          <a href='#' onClick={this.logOut}>Logout</a>
         </div>
       )
       : (
@@ -64,4 +63,4 @@ class Nav extends Component{
   }
 }
 
-export default Nav;
+export default withRouter(Nav);

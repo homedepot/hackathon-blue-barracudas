@@ -1,11 +1,9 @@
 const express = require('express');
-const logger = require('morgan');
-const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const bodyParser = require('body-parser');
 const compression = require('compression');
 const passport = require('passport');
-const LocalStrategy = require('passport-local').Strategy
+const LocalStrategy = require('passport-local').Strategy;
 const createGraphQLLogger = require('graphql-log');
 const cors = require('cors');
 const graphqlHTTP = require('express-graphql');
@@ -60,7 +58,7 @@ passport.serializeUser(function (user, cb) {
 
 passport.deserializeUser(function (id, cb) {
   console.log('hi')
-  User.findById(id, function (err, user) {
+  UserDetails.findById(id, function (err, user) {
     cb(err, user);
   });
 });

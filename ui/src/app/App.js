@@ -9,6 +9,8 @@ import ChildSignUp from '../components/childsignup/ChildSignUp';
 import ChildDetails from '../components/childDetails/ChildDetails';
 import ConfirmationPage from '../components/confirmationPage/ConfirmationPage';
 import Admin from '../components/adminLogin/adminLogin'
+import Cookies from 'universal-cookie';
+const cookies = new Cookies();
 
 function App() {
   return (
