@@ -40,8 +40,8 @@ export default class Wish extends Component {
 
                <div className='sponsorName'>Sponsor:</div>
                { Math.random() >= 0.5
-                 ? ( <img src="https://corporate.homedepot.com/sites/default/files/image_gallery/THD_logo.jpg" /> )
-                 : ( <img src="https://cdn.worldvectorlogo.com/logos/bank-of-america-4.svg" /> )
+                 ? ( <img alt='Home Depot Logo' src="https://corporate.homedepot.com/sites/default/files/image_gallery/THD_logo.jpg" /> )
+                 : ( <img alt='Bank of America Logo' src="https://cdn.worldvectorlogo.com/logos/bank-of-america-4.svg" /> )
                }
              </div>
              <div className='vertical-line'></div>
