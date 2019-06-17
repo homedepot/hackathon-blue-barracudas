@@ -18,6 +18,8 @@ class ManageWishes extends Component{
     this.props.getAllWishes()
   }
 
+
+
   render(){
     return(
       <div className='manage-wishes-container'>

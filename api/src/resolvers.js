@@ -1,7 +1,8 @@
-const getWish = require('./wish/resolvers');
+const wishResolver = require('./wish/resolvers');
 const getSponsor = require('./sponsor/resolvers');
 
 module.exports = {
-  wishes: getWish,
+  wish: wishResolver.getWishById,
+  wishes: wishResolver.getAllWishes,
   sponsors: getSponsor
 }

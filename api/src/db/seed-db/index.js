@@ -12,7 +12,7 @@ class SeedDb {
     const wishes = shuffle(
       generateWishes(50, {wishStatus: 'Granted'})
         .concat(generateWishes(30))
-    );
+      ).map((wish, index) => { wish.id = index; return wish });
 
     await this.seedCollection('wishes', wishes);
     process.exit(0);

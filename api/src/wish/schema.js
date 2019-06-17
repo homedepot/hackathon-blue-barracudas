@@ -3,23 +3,24 @@ const makeExecutableSchema = require('graphql-tools').makeExecutableSchema;
 module.exports = makeExecutableSchema({
   typeDefs: `
     type Query {
-      wishes(id: String!): Wish
+      wishes: [Wish]
+      wish(id: String!): Wish
     }
     
     type Wish {
-      createDate: String,
-      lastUpdateDate: String,
-      lastUpdateUserid: String,
+      id: String,
       wishDetailsText: String,
       wishStatus: String,
       wishType: String,
-      childFirstname: String,
-      childLastname:String,
+      childFirstName: String,
+      childLastName:String,
       childAge: String,
       parentFirstName:String,
-      parentLastname: String,
-      childHomeCity: String
+      parentLastName: String,
+      childHomeCity: String,
+      sponsorID : String,
+      createdAt: String,
+      updatedAt: String,
     }
-
   `
 });
