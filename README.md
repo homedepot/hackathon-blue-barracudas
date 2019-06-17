@@ -6,6 +6,22 @@ create-react-app + expressjs + mongodb + docker-compose!!
 [![Build Status](https://travis-ci.org/homedepot/hackathon-blue-barracudas.svg?branch=master)](https://travis-ci.org/homedepot/hackathon-blue-barracudas)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg?style=flat)](LICENSE)
 
+## Admin Default Credentials:
+
+__Username__: admin
+
+__Password__: password123
+
+## Features Completed!:
+
+- Admins can login to secure area and view all wishes
+- The public can see only the wishes with status of "Granted" (wishes that have not been granted are only visible to Admins)
+- Wishers have a form to submit wishes (note: we were not able to get the back end wired in to capture this info)
+- Seed data script (auto runs on deploy)
+- GraphQL Integration
+- Redux single state store
+- Based on a mobile friendly styleguide : https://bootswatch.com/litera/
+
 ## Quick Setup
 
 This blue-barracudas application uses docker-compose to get the entire environment setup off of the ground.
