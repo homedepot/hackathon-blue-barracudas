@@ -28,19 +28,17 @@ class ChildDetails extends Component{
   };
 
   wishDetails = () => {
-    console.log('props is set to : ', this.props);
     const wishDetailsText = this.props.childInfo.wishDetailsText;
     return wishDetailsText.charAt(0).toLowerCase()
             + wishDetailsText.substring(1, wishDetailsText.length);
-  }
-
+  };
 
   render(){
     const { childFirstName, childHomeCity } = this.props.childInfo;
     
     return(
       <div className='child-details-container'>
-        <Nav />
+        <Nav navButtons={"false"} />
         <div className='child-info-container'>
           <Image source={this.randomChild()}/>
           <div className='wish-details'>
