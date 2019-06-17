@@ -15,10 +15,8 @@ class ManageWishes extends Component{
   }
 
   componentDidMount(){
-    this.props.getAllWishes()
+    this.props.getAllWishes();
   }
-
-
 
   render(){
     return(

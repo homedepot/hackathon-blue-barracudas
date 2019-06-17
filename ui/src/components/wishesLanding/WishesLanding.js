@@ -7,8 +7,9 @@ import { getAllWishes } from '../../actions/wishActions'
 import { setChildInfo } from '../../actions/wishActions'
 
 class WishList extends Component{
-  async componentDidMount() {
-    await this.props.getAllWishes()
+
+  componentDidMount() {
+    this.props.getAllWishes();
   }
 
   randomStar = () => {
