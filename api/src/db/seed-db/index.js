@@ -6,6 +6,7 @@ class SeedDb {
   perform = async () => {
     await this.seedCollection('wishes');
     await this.seedCollection('sponsors');
+    await this.seedCollection('userDetails');
     process.exit(0);
   }
 
