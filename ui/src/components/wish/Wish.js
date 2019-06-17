@@ -28,7 +28,15 @@ export default class Wish extends Component {
     return(
       <div >
         <li className="nav-item dropdown show">
-          <a className="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="true">Add Sponsor</a>
+          <div
+            style={{ cursor: 'pointer' }}
+            className="nav-link dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="true">
+            Add Sponsor
+          </div>
           <div className="dropdown-menu show other-options" x-placement="bottom-start" >
             <input 
               type="text" 
@@ -62,7 +70,7 @@ export default class Wish extends Component {
     return (
       <div className='wish-container'>
         <div className='profile-picture'>
-          <img className='rounded-image' alt='Profile picture' src={this.props.childImage} />
+          <img className='rounded-image' alt='Child' src={this.props.childImage} />
         </div>
         <div className='child-wish-details-container'>
           <p className='lead gray-text'><span>{this.props.childFirstName}</span> - Age {this.props.childAge} from {this.props.childHomeCity}</p>
@@ -76,13 +84,11 @@ export default class Wish extends Component {
              <div className='vertical-line'></div>
              <div className='wish-type icons'>
                <Image
-                 alt='Wish type'
                  source={this.props.wishType}
                />
              </div>
              <div className='chevron icons'>
                <Image
-                 alt='Chevron'
                  source='chevronForward'
                />
              </div>

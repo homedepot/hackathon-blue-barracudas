@@ -24,6 +24,7 @@ class ChildDetails extends Component{
       case 'Meet Someone':  return('to meet my hero!');
       case 'Be Someone':    return('to be who I want!');
       case 'See Something': return('to see the coolest thing!');
+      default: break;
     };
   };
 
