@@ -4,5 +4,6 @@ const getSponsor = require('./sponsor/resolvers');
 module.exports = {
   wish: wishResolver.getWishById,
   wishes: wishResolver.getAllWishes,
+  wishesByStatus: wishResolver.getWishesByStatus,
   sponsors: getSponsor
 }

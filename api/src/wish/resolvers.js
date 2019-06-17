@@ -10,4 +10,10 @@ const getAllWishes = (args, context) =>
     .find()
     .toArray();
 
-module.exports = { getWishById, getAllWishes }
+const getWishesByStatus = (args, context) =>
+  context.db
+    .collection('wishes')
+    .find({"wishStatus": args.wishStatus})
+    .toArray();
+
+module.exports = { getWishById, getAllWishes, getWishesByStatus }

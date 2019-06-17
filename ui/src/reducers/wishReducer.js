@@ -14,6 +14,12 @@ const wishReducer = (state = getDefaultState(), action) => {
         wishes: action.payload
       }
     }
+    case 'GET_ALL_GRANTED_WISHES': {
+      return {
+        ...state,
+        wishes: action.payload
+      }
+    }
     case 'SET_DATE_MONTH': {
       return {
         ...state,

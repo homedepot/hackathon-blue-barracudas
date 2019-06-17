@@ -4,6 +4,7 @@ module.exports = makeExecutableSchema({
   typeDefs: `
     type Query {
       wishes: [Wish]
+      wishesByStatus(wishStatus: String!): [Wish]
       wish(id: String!): Wish
     }
     

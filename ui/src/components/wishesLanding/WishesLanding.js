@@ -3,13 +3,13 @@ import Image from '../image/Image'
 import Nav from '../nav/Nav'
 import './WishesLanding.scss'
 import { connect } from 'react-redux'
-import { getAllWishes } from '../../actions/wishActions'
+import { getAllGrantedWishes } from '../../actions/wishActions'
 import { setChildInfo } from '../../actions/wishActions'
 
 class WishList extends Component{
 
   componentDidMount() {
-    this.props.getAllWishes();
+    this.props.getAllGrantedWishes();
   }
 
   randomStar = () => {
@@ -51,12 +51,17 @@ class WishList extends Component{
     return(
       <div className='wishes-landing-container'>
         <Nav />
-        <div className='wishes-granted-header'>
-          {this.props.wishes.length} Wishes Granted! Thousands more to come!
-        </div>
-        <div className='wishes-group-container'>
-          {this.renderWishList()}
-        </div>
+        { console.log(this.props) }
+        { this.props.wishes
+          ? (<div>
+              <div className='wishes-granted-header'>
+              {this.props.wishes.length} Wishes Granted! Thousands more to come!
+              </div>
+              <div className='wishes-group-container'>
+                {this.renderWishList()}
+              </div>
+            </div>)
+          : "" }
       </div>
     )
   }
@@ -71,7 +76,7 @@ const mapStateToProps = (state) => {
 export default connect(
   mapStateToProps,
   {
-    getAllWishes,
+    getAllGrantedWishes,
     setChildInfo
   }
 )(WishList)

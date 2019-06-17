@@ -6,6 +6,11 @@ export const getAllWishes = async () => ({
     payload: await getAllWishesFromGraphQL()
   });
 
+export const getAllGrantedWishes = async () => ({
+    type: 'GET_ALL_GRANTED_WISHES',
+    payload: await getAllGrantedWishesFromGraphQL()
+  });
+
 export const setDateMonth = (month) => ({
     type: 'SET_DATE_MONTH',
     payload: month
@@ -70,3 +75,25 @@ const getAllWishesFromGraphQL = async () =>
           updatedAt
         }}`
       })).data.data.wishes;
+
+const getAllGrantedWishesFromGraphQL = async () =>
+  (await axios
+    .post(`${expressDomain}/graphql`,
+      {
+        query: `{ 
+        wishesByStatus(wishStatus: "Granted"){
+          id
+          wishDetailsText
+          wishStatus
+          wishType
+          childFirstName
+          childLastName
+          childAge
+          parentFirstName
+          parentLastName
+          childHomeCity
+          sponsorID
+          createdAt
+          updatedAt
+        }}`
+      })).data.data.wishesByStatus;
