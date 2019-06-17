@@ -21,8 +21,8 @@ class AdminLogin extends Component {
     }
   }
 
-  login = async () => {
-    console.log('login method');
+  login = async (e) => {
+    e.preventDefault();
     const { username, password } = this.state;
 
     try {
@@ -33,7 +33,7 @@ class AdminLogin extends Component {
             password
           });
       console.log('response: ', response.data);
-      if(response.data.login == 'Successful') {
+      if(response.data.login === 'Successful') {
         cookies.set('user', response.data.user, { path: '/' });
         this.props.history.push('/manage-wishes')
       } else {
@@ -70,39 +70,38 @@ class AdminLogin extends Component {
     return (
       <div className='admin-login-wrapper'>
         <Nav navButtons="false" />
-        <div className="admin-login-container">
-          <div className="login">
-            <Image source='logo' alt="Logo" className='logo-admin' />
-            <h6>Admin Login</h6>
-            <div className='inputs'>
-              <label>username</label> 
-              <input 
-                className="form-control-lg border-line"
-                id="username"
-                labelName="Username: " 
-                inputType="text"
-                onChange={event =>
-                    this.handleFormFieldChange('username', event)
-                }
-              />
-              <label>password</label> 
-              <input 
-                className="form-control-lg border-line"
-                type="password" 
-                id="password" 
-                labelName="Password: " 
-                inputType="password"
-                onChange={event =>
-                    this.handleFormFieldChange('password', event)
-                }
-              />
-            </div>
-            <div className="buttonContainer">
-              <button className="btn btn-primary" onClick={this.login}>Login</button> &nbsp;
-              {/*<button className="btn btn-info" onClick={this.signUp}>Sign Up</button>*/}
-            </div>
+        <form className="admin-login-container" onSubmit={this.login}>
+          <Image source='logo' alt="Logo" className='logo-admin' />
+          <h6>Admin Login</h6>
+          <div className='inputs'>
+            <label>username</label>
+            <input
+              className="form-control-lg border-line"
+              id="username"
+              labelName="Username: "
+              inputType="text"
+              onChange={event =>
+                this.handleFormFieldChange('username', event)
+              }
+            />
+            <label>password</label>
+            <input
+              className="form-control-lg border-line"
+              type="password"
+              id="password"
+              labelName="Password: "
+              inputType="password"
+              onChange={event =>
+                this.handleFormFieldChange('password', event)
+              }
+            />
           </div>
-        </div>
+          <div className="buttonContainer">
+            <br />
+            <button className="btn btn-primary" >Login</button>
+            {/*<button className="btn btn-info" onClick={this.signUp}>Sign Up</button>*/}
+          </div>
+        </form>
       </div>
     )
   }
