@@ -7,17 +7,19 @@ import Nav from '../nav/Nav'
 
 const Wish = (props) => {
   return (
-    <div onClick={() => props.handleClick(props.imgSrc)} className='wish-type-image' style={{ display: 'inline-block', paddingLeft: `${props.leftPadding}px` }}>
-      <div
-        className='wish-type-div'
-      >
+    <div onClick={() => props.handleClick(props.imgSrc)}
+         className={'wish-type-image '
+            + (props.wishType === props.imgSrc
+              ? 'active'
+              : '')}>
+      <div className='wish-type-div'>
         <Image source={`${props.imgSrc}`} />
       </div>
       <h2 className="signup-text">{props.objective}</h2>
       <div className="signup-text">{props.goal}</div>
     </div>
   )
-}
+};
 
 class ChildSignUp extends Component {
   state = {
@@ -26,19 +28,18 @@ class ChildSignUp extends Component {
     city: '',
     details: '',
     wish: ''
-  }
+  };
 
   handleChange = (event) => {
-    event.preventDefault()
+    event.preventDefault();
     this.setState({[event.target.name]: event.target.value})
-  }
+  };
 
   submitNewWish = (wishType) => {
-    this.props.setWishType(wishType)
-    this.props.createNewWish(this.state)
-    this.props.setChildInfo(this.state)
-    this.props.history.push('/wish-submitted')
-  }
+    this.props.setWishType(wishType);
+    this.props.createNewWish(this.state);
+    this.props.setChildInfo(this.state);
+  };
 
   render() {
     return (
@@ -48,31 +49,38 @@ class ChildSignUp extends Component {
       >
         <Nav />
         <div style={{display: "flex" }}>
-          <h1 className="signup-text" style={{ marginTop: 0, fontSize: 80, display: "inline-block" }}>
+          <h1 className="signup-text" style={{
+            marginTop: 0,
+            paddingTop: 30,
+            paddingBottom: 30,
+            fontSize: 80,
+            display: "inline-block" }}>
             Hello, everyone!
           </h1>
         </div>
         <form className='child-signup-form'>
-          <div className="signup-text" style={{fontSize: 40}}>
-            My name is
+          <div className="signup-text" style={{}}>
+            <p>My name is: &nbsp;
             <input
               type="text"
               name="name"
               placeholder="enter your name"
               onChange={this.handleChange}
-              className='child-input'
-            />
-            and I am 
+              style={{ width: '400px' }}
+            /></p>
+            <p>
+            I am: &nbsp;
             <input 
               type="text" 
               name="age" 
               placeholder="your age" 
               onChange={this.handleChange}
-              className='child-input'
+              style={{ width: '250px' }}
             />
             years old!
-            <div className='child-city'>
-              I am from
+            </p>
+            <p>
+              I am from &nbsp;
               <input
                 type="text"
                 name="city"
@@ -80,68 +88,71 @@ class ChildSignUp extends Component {
                 onChange={this.handleChange}
                 className='child-input'
               />
-            </div>
-          </div>
-          <div className='signup-text child-signup-details' style={{fontSize: 40}}>
-            <div>
-              I <textarea 
-                type="text" 
-                name="details" 
-                placeholder="tell us about you!" 
+            </p>
+            <p>
+              I &nbsp;
+              <input
+                type="text"
+                name="details"
+                placeholder="tell us about you!"
                 className='child-input'
                 onChange={this.handleChange}
+                style={{ width: '630px' }}
               />
-            </div>
-            <div>
-              and I wish 
-              <textarea 
-                type="text" 
-                name="wish" 
-                placeholder="tell us your wish!" 
+            </p>
+            <p>
+              and I wish &nbsp;
+              <input
+                type="text"
+                name="wish"
+                placeholder="tell us your wish!"
                 className='child-input'
                 onChange={this.handleChange}
-              /> 
-            </div>
+                style={{ width: '450px' }}
+              />
+            </p>
           </div>
         </form>
-        <div>
-          <h2 className="signup-text" style={{fontSize: 40}}>I wish to:</h2>
+        <div style={{margin: '10px 0 15px'}}>
+          <h2 className="signup-text">I wish to:</h2>
         </div>
-
-        
         <div>
           <Wish 
-              handleClick={this.submitNewWish} 
-              objective={"GO"} 
-              goal={"Somewhere"} 
-              imgSrc={"toGo"} 
-              leftPadding={0}
+            handleClick={this.submitNewWish}
+            objective={"GO"}
+            goal={"Somewhere"}
+            imgSrc={"toGo"}
+            wishType={this.props.wishType}
           />
 
           <Wish 
             handleClick={this.submitNewWish} 
             objective={"MEET"} 
             goal={"Someone"} 
-            imgSrc={"toMeet"} 
-            leftPadding={35}
+            imgSrc={"toMeet"}
+            wishType={this.props.wishType}
           />
           
           <Wish 
             handleClick={this.submitNewWish} 
             objective={"BE"} 
             goal={"Someone"} 
-            imgSrc={"toBe"} 
-            leftPadding={35}
+            imgSrc={"toBe"}
+            wishType={this.props.wishType}
           />
 
           <Wish 
             handleClick={this.submitNewWish} 
             objective={"SEE"} 
             goal={"Something"} 
-            imgSrc={"toSee"} 
-            leftPadding={35}
+            imgSrc={"toSee"}
+            wishType={this.props.wishType}
           />
         </div>
+
+        <button className="btn btn-info">
+          Make Your Wish
+        </button>
       </div>
     )
   }
@@ -151,7 +162,7 @@ const mapStateToProps = (state) => {
   return{
     wishType: state.wish.wishType
   }
-}
+};
 
 export default connect(
   mapStateToProps, 

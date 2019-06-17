@@ -3,43 +3,92 @@
   font-family: "Arial Rounded MT Bold";
   font-size: 40px;
 }
+
 .wish-type-div{
   width: 150;
   height: 150;
-  background-color: 'white';
-  border-color: '#0870b8';
-  border-width: 5;
-  border-style: 'solid';
-  display: 'flex';
-  justify-content: 'center';
-  align-items: 'center';
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 30px;
+  background-color: #8ad8dc;
+  padding: 6px;
 }
-.child-input{
-  height: 80;
-  /* width: 300; */
-  font-size: 40;
-  color: #FF00A7;
 
-}
 .child-city{
   display: flex;
   margin-top: 10px;
   justify-content: center;
   width: 100%;
 }
+
+.wish-type-image {
+  display: inline-block;
+  text-align: center;
+  margin: 15px;
+}
+
+.wish-type-image.active {
+  background-color: #bcfcff;
+  border-radius: 30px;
+  padding: 15px;
+  border: solid 5px #17a2b8;
+}
+
+.wish-type-image.active .wish-type-div {
+  background-color: #d1fdff;
+}
+
+.wish-type-image h2 {
+  margin: 10px 0 0;
+}
+
 .wish-type-image:hover{
   cursor: pointer;
 }
-.child-signup-form{
+
+.child-signup-form {
+  font-size: 40px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
 }
+
+.child-signup-form input {
+  height: 75px;
+  vertical-align: middle;
+  font-size: 40px;
+  color: #FF00A7;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  text-align: center;
+  padding: 0 10px;
+  margin: 0 20px 0 0;
+}
+
+.child-signup-form textarea {
+  font-size: 40px;
+  color: #FF00A7;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  text-align: center;
+  vertical-align: middle;
+  padding: 0 10px;
+  margin: 0 20px 0 0;
+  min-width: 400px;
+  min-height: 200px;
+}
+
 .signup-card {
   background-color: #72ccd0;
   width: 100%;
-  height: 100vh;
   padding-left: 30px;
   padding-bottom: 10px;
   margin: 0 auto;
@@ -48,14 +97,20 @@
   align-items: center;
   justify-content: space-around;
 }
+
 .child-signup-details{
   display: flex;
   padding-top: 25px;
 }
-textarea{
-  min-width: 400px;
-  min-height: 200px;
+
+.btn {
+  padding: 20px 50px;
+  font-size: 30px;
+  margin: 30px;
+  font-family: "Arial Rounded MT Bold";
 }
+
 .signup-text {
+  font-size: '40px';
   color: #2e3092;
 }
