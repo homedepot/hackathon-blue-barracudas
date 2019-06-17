@@ -1,10 +1,9 @@
-import React, { Component } from 'react'
-import './Wish.scss'
-import Image from '../image/Image'
+import React, { Component } from 'react';
+import './Wish.scss';
+import Image from '../image/Image';
 
 export default class Wish extends Component {
   state = {
-    showDropDown: false,
     sponsorName: ''
   }
 
@@ -23,49 +22,6 @@ export default class Wish extends Component {
     this.props.addSponsor(wishId, sponsor)
   }
 
-  sponsorDropDown = () => {
-    if(this.state.showDropDown){
-    return(
-      <div >
-        <li className="nav-item dropdown show">
-          <div
-            style={{ cursor: 'pointer' }}
-            className="nav-link dropdown-toggle"
-            data-toggle="dropdown"
-            role="button"
-            aria-haspopup="true"
-            aria-expanded="true">
-            Add Sponsor
-          </div>
-          <div className="dropdown-menu show other-options" x-placement="bottom-start" >
-            <input 
-              type="text" 
-              name="sponsorName" 
-              placeholder="Enter Sponsor Name" 
-              onChange={this.handleChange}
-              className='dropdown-item sponsor-name form-control-sm' 
-            />
-            <button type="button" onClick={() => this.addSponsor(this.props.id, this.state.sponsorName)} className="btn btn-info dropdown-item">Submit</button>
-            <div className="dropdown-divider"></div>
-          </div>
-        </li>
-      </div>
-    )} else{
-      return <label>Add Sponsor</label>
-    }
-  }
-  renderSponsor = () => {
-    if(this.props.sponor === '' || !this.props.sponsor){
-      return (
-      <div className='sponsor-items'>
-        <Image source='add' onClick={() => this.showDropDown()}/>
-        {this.sponsorDropDown()}
-      </div>
-      )
-    } else{
-      return (<img alt='Sponsor' src={`${this.props.sponsor}`} />)
-    }
-  }
   render() {
     return (
       <div className='wish-container'>
@@ -78,20 +34,27 @@ export default class Wish extends Component {
         </div>
         <div className='vertical-line'></div>    
         <div className='wish information'>
+
+
              <div className='sponsor'>
-               {this.renderSponsor()}
+
+               <div className='sponsorName'>Sponsor:</div>
+               { Math.random() >= 0.5
+                 ? ( <img src="https://corporate.homedepot.com/sites/default/files/image_gallery/THD_logo.jpg" /> )
+                 : ( <img src="https://cdn.worldvectorlogo.com/logos/bank-of-america-4.svg" /> )
+               }
              </div>
              <div className='vertical-line'></div>
              <div className='wish-type icons'>
                <Image
-                 source={this.props.wishType}
-               />
-             </div>
-             <div className='chevron icons'>
-               <Image
                  source='chevronForward'
                />
              </div>
+             {/*<div className='chevron icons'>*/}
+             {/*  <Image*/}
+             {/*    source='chevronForward'*/}
+             {/*  />*/}
+             {/*</div>*/}
            </div>
       </div>
     )

@@ -51,7 +51,6 @@ const addSponsorInGraphQL = (wishId, sponsor) => {
 }
 const changeStatusToCompleteInGraphQL = (wishId) => {
   //Put call to change status to complete here
-  console.log(wishId)
 }
 
 const getAllWishesFromGraphQL = async () =>
