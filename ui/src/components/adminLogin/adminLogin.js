@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './adminLogin.css';
 import Image from '../image/Image'
-import { Link } from 'react-router-dom'
 import Nav from '../nav/Nav'
 import axios from "axios";
 
@@ -39,6 +38,7 @@ class AdminLogin extends Component {
       }
     } catch (e) {
       console.log('error', e)
+      alert("Error logging in!")
     }
   };
 
@@ -66,10 +66,10 @@ class AdminLogin extends Component {
 
     return (
       <div className='admin-login-wrapper'>
-        <Nav />
+        <Nav navButtons="false" />
         <div className="admin-login-container">
           <div className="login">
-            <Link to='/'><Image source='logo' alt="Logo" className='logo-admin' /></Link>
+            <Image source='logo' alt="Logo" className='logo-admin' />
             <h6>Admin Login</h6>
             <div className='inputs'>
               <label>username</label> 

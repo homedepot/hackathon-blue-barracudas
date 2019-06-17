@@ -2,10 +2,23 @@ import React, { Component } from 'react'
 import Image from '../image/Image'
 import { Link } from 'react-router-dom'
 import './Nav.scss'
-export default class Nav extends Component{
+
+class Nav extends Component{
+
+  constructor(props) {
+    super(props);
+    this.props = props;
+    console.log('Nav props: ', props);
+  }
+
   state = {
     isLoggedIn: false,
   }
+
+  showNavButtons = () => {
+    return this.props.navButtons !== "false";
+  }
+
   renderLinks = () => {
     if (this.state.isLoggedIn){
       return (
@@ -41,8 +54,13 @@ export default class Nav extends Component{
             />
           </Link>
         </div>
-          {this.renderLinks()}
+          { this.showNavButtons()
+            ? this.renderLinks()
+            : ""
+          }
       </div>
     )
   }
 }
+
+export default Nav;
