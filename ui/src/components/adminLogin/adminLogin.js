@@ -74,7 +74,7 @@ class AdminLogin extends Component {
           <Image source='logo' alt="Logo" className='logo-admin' />
           <h6>Admin Login</h6>
           <div className='inputs'>
-            <label>username</label>
+            <label>Username (Demo account username: admin)</label>
             <input
               className="form-control-lg border-line"
               id="username"
@@ -84,7 +84,7 @@ class AdminLogin extends Component {
                 this.handleFormFieldChange('username', event)
               }
             />
-            <label>password</label>
+            <label>Password (Demo account pass: password123)</label>
             <input
               className="form-control-lg border-line"
               type="password"
