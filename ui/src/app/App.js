@@ -8,7 +8,7 @@ import WatchAuth from '../auth/WatchAuth'
 import ChildSignUp from '../components/childsignup/ChildSignUp';
 import ChildDetails from '../components/childDetails/ChildDetails';
 import ConfirmationPage from '../components/confirmationPage/ConfirmationPage';
-import Admin from '../components/adminLogin/AdminLogin'
+import Admin from '../components/adminLogin/adminLogin'
 
 function App() {
   return (
