@@ -37,7 +37,7 @@ it('displays the child name and age', ()=>{
 })
 
 it('displays the child description', ()=>{
-  const childDetails = component.find('.child-details')
+  const childDetails = component.find('.child-wish-details')
   expect(childDetails.text()).toEqual(props.wishDetailsText)
 })
 
