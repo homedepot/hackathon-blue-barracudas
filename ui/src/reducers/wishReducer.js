@@ -2,7 +2,8 @@ export const getDefaultState = () => {
   return {
     wishes: [],
     wishType: '',
-    childInfo: {}
+    childInfo: {},
+    dateMonth: ''
   }
 }
 
