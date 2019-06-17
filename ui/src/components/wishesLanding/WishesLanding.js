@@ -7,8 +7,8 @@ import { getAllWishes } from '../../actions/wishActions'
 import { setChildInfo } from '../../actions/wishActions'
 
 class WishList extends Component{
-  componentDidMount(){
-    this.props.getAllWishes()
+  async componentDidMount() {
+    await this.props.getAllWishes()
   }
 
   randomStar = () => {
@@ -19,14 +19,15 @@ class WishList extends Component{
       "blue-star",
       "black-star",
       "green-star",
-    ]
+    ];
     return stars[Math.floor(Math.random()*stars.length)]
-  }
+  };
 
   goToChild = (childInfo) => {
-    this.props.setChildInfo(childInfo)
+    this.props.setChildInfo(childInfo);
     this.props.history.push('/child-details')
-  }
+  };
+
   renderWishList = () => {
     return this.props.wishes.map((wish, index)=>{
       return(
@@ -43,7 +44,8 @@ class WishList extends Component{
         </div>
       )
     })
-  }
+  };
+
   render(){
     return(
       <div className='wishes-landing-container'>
