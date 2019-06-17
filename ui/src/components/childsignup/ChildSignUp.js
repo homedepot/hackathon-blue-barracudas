@@ -37,6 +37,7 @@ class ChildSignUp extends Component {
 
   submitNewWish = (event) => {
     event.preventDefault();
+    this.props.history.push('/wish-submitted')
     this.props.setChildInfo(this.state);
   };
 
