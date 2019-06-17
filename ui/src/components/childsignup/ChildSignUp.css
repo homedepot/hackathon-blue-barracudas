@@ -48,11 +48,14 @@
 }
 
 .child-signup-form {
-  font-size: 40px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+}
+
+p {
+  font-size: 40px;
 }
 
 .child-signup-form input {

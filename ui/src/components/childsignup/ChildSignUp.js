@@ -35,9 +35,8 @@ class ChildSignUp extends Component {
     this.setState({[event.target.name]: event.target.value})
   };
 
-  submitNewWish = (wishType) => {
-    this.props.setWishType(wishType);
-    this.props.createNewWish(this.state);
+  submitNewWish = (event) => {
+    event.preventDefault();
     this.props.setChildInfo(this.state);
   };
 
@@ -58,7 +57,7 @@ class ChildSignUp extends Component {
             Hello, everyone!
           </h1>
         </div>
-        <form className='child-signup-form'>
+        <form className='child-signup-form' onSubmit={this.submitNewWish}>
           <div className="signup-text" style={{}}>
             <p>My name is: &nbsp;
             <input
@@ -112,47 +111,48 @@ class ChildSignUp extends Component {
               />
             </p>
           </div>
+
+          <div style={{margin: '10px 0 15px'}}>
+            <h2 className="signup-text">I wish to:</h2>
+          </div>
+          <div>
+            <Wish
+              handleClick={this.props.setWishType}
+              objective={"GO"}
+              goal={"Somewhere"}
+              imgSrc={"toGo"}
+              wishType={this.props.wishType}
+            />
+
+            <Wish
+              handleClick={this.props.setWishType}
+              objective={"MEET"}
+              goal={"Someone"}
+              imgSrc={"toMeet"}
+              wishType={this.props.wishType}
+            />
+
+            <Wish
+              handleClick={this.props.setWishType}
+              objective={"BE"}
+              goal={"Someone"}
+              imgSrc={"toBe"}
+              wishType={this.props.wishType}
+            />
+
+            <Wish
+              handleClick={this.props.setWishType}
+              objective={"SEE"}
+              goal={"Something"}
+              imgSrc={"toSee"}
+              wishType={this.props.wishType}
+            />
+          </div>
+
+          <button className="btn btn-info">
+            Make Your Wish
+          </button>
         </form>
-        <div style={{margin: '10px 0 15px'}}>
-          <h2 className="signup-text">I wish to:</h2>
-        </div>
-        <div>
-          <Wish 
-            handleClick={this.submitNewWish}
-            objective={"GO"}
-            goal={"Somewhere"}
-            imgSrc={"toGo"}
-            wishType={this.props.wishType}
-          />
-
-          <Wish 
-            handleClick={this.submitNewWish} 
-            objective={"MEET"} 
-            goal={"Someone"} 
-            imgSrc={"toMeet"}
-            wishType={this.props.wishType}
-          />
-          
-          <Wish 
-            handleClick={this.submitNewWish} 
-            objective={"BE"} 
-            goal={"Someone"} 
-            imgSrc={"toBe"}
-            wishType={this.props.wishType}
-          />
-
-          <Wish 
-            handleClick={this.submitNewWish} 
-            objective={"SEE"} 
-            goal={"Something"} 
-            imgSrc={"toSee"}
-            wishType={this.props.wishType}
-          />
-        </div>
-
-        <button className="btn btn-info">
-          Make Your Wish
-        </button>
       </div>
     )
   }
