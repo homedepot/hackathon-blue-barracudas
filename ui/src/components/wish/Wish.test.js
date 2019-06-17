@@ -1,7 +1,7 @@
 import React from 'react'
 import Wish from './Wish.js'
 import { shallow } from 'enzyme'
-import Image from '../image/Image'
+// import Image from '../image/Image'
 
 let props
 let component 
@@ -41,17 +41,17 @@ it('displays the child description', ()=>{
   expect(childDetails.text()).toEqual(props.wishDetailsText)
 })
 
-it('displays the sponsor logo', ()=>{
-  const sponsor = component.find('.sponsor img')
-  expect(sponsor.props().src).toEqual(props.sponsor)
-})
+// it('displays the sponsor logo', ()=>{
+//   const sponsor = component.find('.sponsor img')
+//   expect(sponsor.props().src).toEqual(props.sponsor)
+// })
 
-it('displays the wishType image', ()=>{
-  const wishType = component.find('.wish-type Image')
-  expect(wishType.props().source).toEqual(props.wishType)
-})
-
-it('displays the forward chevron', ()=>{
-  const chevron = component.find('.chevron Image')
-  expect(chevron.props().source).toEqual('chevronForward')
-})
+// it('displays the wishType image', ()=>{
+//   const wishType = component.find('.wish-type Image')
+//   expect(wishType.props().source).toEqual(props.wishType)
+// })
+//
+// it('displays the forward chevron', ()=>{
+//   const chevron = component.find('.chevron Image')
+//   expect(chevron.props().source).toEqual('chevronForward')
+// })
