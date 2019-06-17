@@ -3,18 +3,63 @@ import './adminLogin.css';
 import Image from '../image/Image'
 import { Link } from 'react-router-dom'
 import Nav from '../nav/Nav'
+import axios from "axios";
 
 class AdminLogin extends Component {
 
-  loginHandler = () => {
-    alert("login clicked");
-    this.props.history.push('/wish');
+  constructor(props) {
+    super(props);
 
+    this.expressDomain =
+        process.env.REACT_APP_expressDomain || 'http://localhost:3002';
+
+    this.props = props;
+    this.state = {
+      username: '',
+      password: ''
+    }
+  }
+
+  login = async () => {
+    console.log('login method');
+    const { username, password } = this.state;
+
+    try {
+      const response = await axios
+          .create({ withCredentials: true })
+          .post(`${this.expressDomain}/auth/login`, {
+            username,
+            password
+          });
+      console.log('response: ', response.data);
+      if(response.data.login == 'Successful') {
+        this.props.history.push('/manage-wishes')
+      } else {
+        alert("Login unsuccessful")
+      }
+    } catch (e) {
+      console.log('error', e)
+    }
   };
 
-  signUp = () => {
-    alert("signup clicked");
-    this.props.history.push('/');
+  // signUp = async () => {
+  //   const { username, password } = this.state;
+  //
+  //   try {
+  //     await axios
+  //         .post(`${this.expressDomain}/auth/register`, {
+  //           username,
+  //           password
+  //         });
+  //     this.setState({
+  //       username: '',
+  //       password: ''
+  //     })
+  //   } catch (e) {}
+  // };
+
+  handleFormFieldChange = (key, { target: { value } }) => {
+    this.setState({ [key]: value })
   };
 
   render() {
@@ -30,10 +75,12 @@ class AdminLogin extends Component {
               <label>username</label> 
               <input 
                 className="form-control-lg border-line"
-                id="username" 
+                id="username"
                 labelName="Username: " 
-                inputType="text" 
-                parentFunction={this.setUsername} 
+                inputType="text"
+                onChange={event =>
+                    this.handleFormFieldChange('username', event)
+                }
               />
               <label>password</label> 
               <input 
@@ -41,13 +88,15 @@ class AdminLogin extends Component {
                 type="password" 
                 id="password" 
                 labelName="Password: " 
-                inputType="password" 
-                parentFunction={this.setPassword} 
+                inputType="password"
+                onChange={event =>
+                    this.handleFormFieldChange('password', event)
+                }
               />
             </div>
             <div className="buttonContainer">
-              <button className="btn btn-primary" onClick={this.loginHandler}>Login</button> &nbsp;
-              <button className="btn btn-info" onClick={this.signUp}>Sign Up</button>
+              <button className="btn btn-primary" onClick={this.login}>Login</button> &nbsp;
+              {/*<button className="btn btn-info" onClick={this.signUp}>Sign Up</button>*/}
             </div>
           </div>
         </div>

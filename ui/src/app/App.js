@@ -1,7 +1,6 @@
 import React from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css'
-import Login from '../components/login/Login'
 import WishesLanding from '../components/wishesLanding/WishesLanding'
 import ManageWishes from '../components/manageWishes/ManageWishes'
 import DateList from '../components/dateList/DateList'
@@ -16,7 +15,6 @@ function App() {
       <WatchAuth>
         <Switch>
           <Route exact path="/" component={WishesLanding} />
-          <Route exact path="/login" component={Login} />
           <Route exact path="/childsignup" component={ChildSignUp} />
           <Route exact path="/wish-submitted" component={ConfirmationPage} />
           <Route exact path="/manage-wishes" component={ManageWishes} />

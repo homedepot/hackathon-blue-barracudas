@@ -1,4 +1,4 @@
-export const getAllWishes = () =>{
+export const getAllWishes = () => {
   return {
     type: 'GET_ALL_WISHES',
     payload: getAllWishesFromGraphQL()
@@ -6,28 +6,28 @@ export const getAllWishes = () =>{
 }
 
 export const setDateMonth = (month) => {
-  return{
+  return {
     type: 'SET_DATE_MONTH',
     payload: month
   }
 }
 
 export const createNewWish = (childWish) => {
-  return{
+  return {
     type: 'CREATE_NEW_WISH',
     payload: createNewWishInGraphQL(childWish)
   }
 }
 
 export const setChildInfo = (childInfo) => {
-  return{
+  return {
     type: 'SET_CHILD_INFO',
     payload: childInfo
   }
 }
 
 export const setWishType = (wishType) => {
-  return{
+  return {
     type: 'SET_WISH_TYPE',
     payload: wishType
   }
