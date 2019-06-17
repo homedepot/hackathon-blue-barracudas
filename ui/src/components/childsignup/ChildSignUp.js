@@ -9,17 +9,7 @@ const Wish = (props) => {
   return (
     <div onClick={() => props.handleClick(props.imgSrc)} className='wish-type-image' style={{ display: 'inline-block', paddingLeft: `${props.leftPadding}px` }}>
       <div
-        style={{
-          width: 150,
-          height: 150,
-          backgroundColor: 'white',
-          borderColor: '#0870b8',
-          borderWidth: 5,
-          borderStyle: 'solid',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}
+        className='wish-type-div'
       >
         <Image source={`${props.imgSrc}`} />
       </div>
@@ -39,7 +29,6 @@ class ChildSignUp extends Component {
   }
 
   handleChange = (event) => {
-    console.log(this.state.age)
     event.preventDefault()
     this.setState({[event.target.name]: event.target.value})
   }
@@ -71,7 +60,7 @@ class ChildSignUp extends Component {
               name="name"
               placeholder="enter your name"
               onChange={this.handleChange}
-              style={{height: 80, width: 330, fontSize: 40, color: "#FF00A7"}}
+              className='child-input'
             />
             and I am 
             <input 
@@ -79,17 +68,19 @@ class ChildSignUp extends Component {
               name="age" 
               placeholder="your age" 
               onChange={this.handleChange}
-              style={{height: 80, width: 170, fontSize: 40, color: "#FF00A7"}}
+              className='child-input'
             />
             years old!
-            I am from
-            <input
-              type="text"
-              name="city"
-              placeholder="enter your city"
-              onChange={this.handleChange}
-              style={{height: 80, width: 330, fontSize: 40, color: "#FF00A7"}}
-            />
+            <div className='child-city'>
+              I am from
+              <input
+                type="text"
+                name="city"
+                placeholder="enter your city"
+                onChange={this.handleChange}
+                className='child-input'
+              />
+            </div>
           </div>
           <div className='signup-text child-signup-details' style={{fontSize: 40}}>
             <div>
@@ -97,7 +88,7 @@ class ChildSignUp extends Component {
                 type="text" 
                 name="details" 
                 placeholder="tell us about you!" 
-                style={{height: 80, width: 170, fontSize: 40, color: "#FF00A7"}}
+                className='child-input'
                 onChange={this.handleChange}
               />
             </div>
@@ -107,7 +98,7 @@ class ChildSignUp extends Component {
                 type="text" 
                 name="wish" 
                 placeholder="tell us your wish!" 
-                style={{height: 80, width: 170, fontSize: 40, color: "#FF00A7"}}
+                className='child-input'
                 onChange={this.handleChange}
               /> 
             </div>

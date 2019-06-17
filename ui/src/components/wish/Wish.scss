@@ -8,6 +8,28 @@
   border-radius: 0;
   padding: 10px;
   box-shadow: 1px solid rgba(1,1,1,0.1);
+  .sponsor-name::placeholder{
+      font-size: 16px;
+      color: grey;
+    }
+  .sponsor-name{
+    height: 50px !important;
+  }
+  
+  .other-options{
+    position: absolute; 
+    will-change: transform; 
+    top: 0px; 
+    left: 0px; 
+    transform: translate3d(0px, 40px, 0px);
+    input{
+      width: 100%;
+      padding: 0;
+      height: 100px;
+      color: black;
+      font-size: 16px;
+    }
+  }
   img{
     max-width: 90px;
     max-height: 90px;

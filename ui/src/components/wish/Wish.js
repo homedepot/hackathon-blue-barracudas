@@ -3,12 +3,55 @@ import './Wish.scss'
 import Image from '../image/Image'
 
 export default class Wish extends Component {
+  state = {
+    showDropDown: false,
+    sponsorName: ''
+  }
+
+  handleChange = (event) => {
+    console.log(this.state.sponsorName)
+    event.preventDefault()
+    this.setState({[event.target.name]: event.target.value})
+  }
+
+  showDropDown = (wishId) => {
+    this.state.showDropDown ? this.setState({showDropDown: false}) : this.setState({showDropDown: true})
+  }
+
+  addSponsor = (wishId, sponsor) => {
+    this.state.showDropDown ? this.setState({showDropDown: false}) : this.setState({showDropDown: true})
+    this.props.addSponsor(wishId, sponsor)
+  }
+
+  sponsorDropDown = () => {
+    if(this.state.showDropDown){
+    return(
+      <div >
+        <li className="nav-item dropdown show">
+          <a className="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="true">Add Sponsor</a>
+          <div className="dropdown-menu show other-options" x-placement="bottom-start" >
+            <input 
+              type="text" 
+              name="sponsorName" 
+              placeholder="Enter Sponsor Name" 
+              onChange={this.handleChange}
+              className='dropdown-item sponsor-name form-control-sm' 
+            />
+            <button type="button" onClick={() => this.addSponsor(this.props.id, this.state.sponsorName)} className="btn btn-info dropdown-item">Submit</button>
+            <div className="dropdown-divider"></div>
+          </div>
+        </li>
+      </div>
+    )} else{
+      return <label>Add Sponsor</label>
+    }
+  }
   renderSponsor = () => {
     if(this.props.sponor === '' || !this.props.sponsor){
       return (
-      <div className='sponsor-items' onClick={this.props.addSponsor}>
-        <Image source='add'/>
-        <label>Add Sponsor</label>
+      <div className='sponsor-items'>
+        <Image source='add' onClick={() => this.showDropDown()}/>
+        {this.sponsorDropDown()}
       </div>
       )
     } else{

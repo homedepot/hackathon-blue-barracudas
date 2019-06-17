@@ -47,6 +47,8 @@ class WishList extends Component{
             childHomeCity={wish.childHomeCity}
             sponsor={wish.sponsor}
             wishType={wish.wishType}
+            id={wish.id}
+            addSponsor={addSponsor}
           />
         </div>
         </div>

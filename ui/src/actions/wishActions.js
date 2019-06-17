@@ -33,10 +33,10 @@ export const setWishType = (wishType) => {
   }
 }
 
-export const addSponsor = (wishId) => {
+export const addSponsor = (wishId, sponsor) => {
   return{
     type: 'ADD_SPONSOR',
-    payload: addSponsorInGraphQL(wishId)
+    payload: addSponsorInGraphQL(wishId, sponsor)
   }
 }
 
@@ -51,9 +51,9 @@ const createNewWishInGraphQL = (childWish) => {
   //Put call to create wish in GraphQL here
   console.log(childWish)
 }
-const addSponsorInGraphQL = (wishId) => {
+const addSponsorInGraphQL = (wishId, sponsor) => {
   //Put call to update sponsor here
-  console.log(wishId)
+  console.log(wishId, sponsor)
 }
 const changeStatusToCompleteInGraphQL = (wishId) => {
   //Put call to change status to complete here
@@ -71,7 +71,8 @@ const getAllWishesFromGraphQL = () => {
       childHomeCity: 'Ancorage',
       sponsor: '',
       wishType: 'toGo',
-      updatedAt: 1561262400000
+      updatedAt: 1561262400000,
+      id: 1
     },
     {
       childImage: 'https://i.imgur.com/AqQrCXI.jpg?1',
